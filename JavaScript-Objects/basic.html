@@ -2,11 +2,236 @@
 <!DOCTYPE html>
 <html xmlns = "http://www.w3.org/1999/xhtml">
   <head> <title> Basic JavaScript </title>
+     	<title>CIT261 - Fall 2019 - Proficiency - Week03</title>
     <base "href = http://localhost/~stevoanderson/" />
+     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 
   </head>
   <body>
+<h1>CIT261 - Fall 2019 - Proficiency - Week03</h1>
+<h3>Purpose: Demonstrate fluency in Object Creation Functions, Inheritance, Properties, Methods, Instantiation.</h3>
+
+<h2> Object Creation</h2>
+	<p> </p>
+<table class = "example"> Object Literal
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;p&gt; &lt;/p&gt;<br><br>
+							&lt;p id="literal-execute"&gt;&lt;/p&gt;<br>
+						</td>
+		<td class = "cell"><pre id = "literal-code">
+
+var player1 = {name:'Gandalf', classs:'Wizard', 
+		level:100, race:'Maia'};
+document.getElementById('literal-execute').innerHTML =
+'Your party leader is a level ' + player1.level +
+ ' ' + player1.classs + ' named ' + player1.name;
+						</pre></td>
+		<td class = "cell">
+			<button class="button" id="literal">Execute</button>
+			<p id = "literal-execute"></p></td></tr></table>
 
 
+<table class = "example"> Constructor
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;p&gt; &lt;/p&gt;<br><br>
+							&lt;p id="construct-execute"&gt;&lt;/p&gt;<br>
+						</td>
+		<td class = "cell"><pre id = "construct-code">
+function Character(name, classs, level, race, age) {
+  this.name = name;
+  this.classs = classs;
+  this.level = level;
+  this.race = race;
+  this.age = age;
+}
+
+var player1 = new Character('Gandalf', 'Wizard', 100, 'Maia');
+document.getElementById('construct-execute').innerHTML =
+'Your party leader is a level ' + player1.level +
+ ' ' + player1.classs + ' named ' + player1.name;
+						</pre></td>
+		<td class = "cell">
+			<button class="button" id="construct">Execute</button>
+			<p id = "construct-execute"></p></td></tr></table>
+<br>
+<h2> Properties</h2>
+	<p> </p>
+<table class = "example"> Properties
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;p&gt; &lt;/p&gt;<br><br>
+							&lt;p id="properties-execute"&gt;&lt;/p&gt;<br>
+						</td>
+		<td class = "cell"><pre id = "properties-code">
+function Character(name, classs, level, race, age) {
+  this.name = name;
+  this.classs = classs;
+  this.level = level;
+  this.race = race;
+  this.age = age;
+}
+
+var player1 = new Character('Gandalf', 100, 'Wizard', 'Maia');
+player1.age = 2019;
+
+document.getElementById('properties-execute').innerHTML =
+'Your party leader is a level ' + player1.level +
+ ' ' + player1.classs + ' named ' + player1.name +
+  ' and is ' + player1.age + ' years old.';
+						</pre></td>
+		<td class = "cell">
+			<button class="button" id="properties">Execute</button>
+			<p id = "properties-execute"></p></td></tr></table>
+<br>
+<h2> Inheritance</h2>
+	<p> </p>
+<table class = "example"> Inheritance
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;p&gt; &lt;/p&gt;<br><br>
+							&lt;p id="inherit-execute"&gt;&lt;/p&gt;<br>
+						</td>
+		<td class = "cell"><pre id = "inherit-code">
+class Character {
+  constructor(name, level, age){
+  this.name = name;
+  this.level = level;
+  this.age = age;
+}
+}
+class Race extends Character{
+  constructor(name, level, classs, race, age){
+    super(name, level, age);
+      this.classs = classs;
+      this.race = race;
+}
+}
+
+var player1 = new Race('Gandalf', 100, 'Wizard', 'Maia');
+document.getElementById('inherit-execute').innerHTML =
+'Your party leader is a level ' + player1.level +
+ ' ' + player1.classs + ' named ' + player1.name;
+						</pre></td>
+		<td class = "cell">
+			<button class="button" id="inherit">Execute</button>
+			<p id = "inherit-execute"></p></td></tr></table>
+<br>
+<h2> Methods</h2>
+	<p> </p>
+<table class = "example"> Methods
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;p&gt; &lt;/p&gt;<br><br>
+							&lt;p id="methods-execute"&gt;&lt;/p&gt;<br>
+						</td>
+		<td class = "cell"><pre id = "methods-code">
+function Student(fname, lname, year, degree) {
+  this.fname = fname;
+  this.lname = lname;
+  this.year = year;
+  this.degree = degree;
+  this.Iam = function() {
+  return 'My name is ' + this.fname + ' ' + this.lname
+     + ', I am a ' + this.year + ' in ' + this.degree;
+}
+}
+
+var player1 = new Student('Steven','Anderson', 
+      'Senior', 'Software Engineering');
+
+document.getElementById('methods-execute').innerHTML =
+player1.Iam();
+						</pre></td>
+		<td class = "cell">
+			<button class="button" id="methods">Execute</button>
+			<p id = "methods-execute"></p></td></tr></table>
+<br>
+
+<h2> Instantiation</h2>
+	<p> </p>
+<table class = "example"> Instantiation
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;p&gt; &lt;/p&gt;<br><br>
+							&lt;p id="inst-execute"&gt;&lt;/p&gt;<br>
+						</td>
+		<td class = "cell"><pre id = "inst-code">
+function Student(fname, lname, year, degree, gpa) {
+  const obj = {};
+
+  obj.fname = fname;
+  obj.lname = lname;
+  obj.year = year;
+  obj.degree = degree;
+  obj.gpa = 0;
+  obj.setGPA = function(input){
+  this.gpa = input;
+}
+  obj.Iam = function() {
+  return 'My name is ' + this.fname + ' ' + this.lname
+     + ', I am a ' + this.year + ' in ' + this.degree +
+     ' with a ' + this.gpa + ' gpa.';
+}
+return obj;
+}
+
+var student = new Student('Steven','Anderson', 
+      'Senior', 'Software Engineering');
+var input1 = document.getElementById('input1').value;
+student.setGPA(input1);
+
+document.getElementById('inst-execute').innerHTML =
+student.Iam();
+						</pre></td>
+		<td class = "cell">
+			Enter your GPA:
+          <input type="number" id="input1" /><br>
+			<button class="button" id="inst">Execute</button>
+			<p id = "inst-execute"></p></td></tr></table>
+<script src="main.js"></script>
   	</body>
 </html>

@@ -2,11 +2,311 @@
 <!DOCTYPE html>
 <html xmlns = "http://www.w3.org/1999/xhtml">
   <head> <title> Basic JavaScript </title>
+  	<title>CIT261 - Fall 2019 - Proficiency - Week02</title>
     <base "href = http://localhost/~stevoanderson/" />
+     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 
   </head>
   <body>
+	<h1>CIT261 - Fall 2019 - Proficiency - Week02</h1>
+	<h3>Purpose: Demonstrate fluency in Loops, Conditional Statements, Functions, Variables, Parameters, Arrays, Associative Arrays.</h3>
+
+	<h2> Variables</h2>
+	<p> </p>
+
+<table class = "example"> Variables
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;h1&gt;Number&lt;/h1&gt;<br><br>
+							&lt;p&gt; I have a lot of family, I have 2 brothers and 5 sisters. <br> How many brothers do I have?&lt;/p&gt;<br><br>
+							&lt;p id="variable-execute"&gt;&lt;/p&gt;<br>
+						</td>
+		<td class = "cell"><pre id = "variable-code">var brothers = 2;
+var sisters =5;
+var i;
+var output= brothers;
+
+document.getElementById('variable-execute').innerHTML = output;
+						</pre></td>
+		<td class = "cell">
+			<button class="button" id="variable">Execute</button>
+			<p id = "variable-execute"></p></td></tr></table>
+<br>
+
+				<h2> Conditional Statements </h2>
+	<p> </p>
+
+<table class = "example"> If Statement
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;h1&gt;Compare&lt;/h1&gt;<br><br>
+							&lt;p&gt; I have a lot of family, I have 2 brothers and 5 sisters. <br> Do I have more brothers or sisters?&lt;/p&gt;<br><br>
+							&lt;p id="if-execute"&gt;&lt;/p&gt;<br>
+						</td>
+		<td class = "cell"><pre id = "if-code">var brothers = 2;
+var sisters =5;
+var i;
+var output='';
+if(brothers > sisters){
+	output='brothers';
+}
+else if(brothers < sisters){
+	output = 'sisters';
+}
+else{
+	output = 'I have the same number of brothers and sisters';
+}
+document.getElementById('if-execute').innerHTML = output;
+						</pre></td>
+		<td class = "cell">
+			<button class="button" id="if">Execute</button>
+			<p id = "if-execute"></p></td></tr></table>
+<br>
+<table class = "example"> Switch Case
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;h1&gt;Counting&lt;/h1&gt;<br><br>
+							&lt;p&gt; I'm going on a day trip do you think I should get gas if I have 3 gallons of gas?&lt;/p&gt;<br><br>
+							&lt;p id="switch-execute"&gt;&lt;/p&gt;<br>
+						</td>
+		<td class = "cell"><pre id = "switch-code">var tank = 3;
+var output='';
+switch(tank){
+	case 0:
+	case 1:
+	case 2:
+		output = "You Need Gas!!";
+		break;
+	case 3:
+	case 4:
+	case 5:
+		output = "You should get some Gas.";
+		break;
+	case 6:
+	case 7:
+	case 8:
+		output = "You might want to get some Gas.";
+		break;
+	case 9:
+	case 10:
+	case 11:
+		output = "You probably don't need Gas.:";
+		break;
+	case 12:
+	case 13:
+	case 14:
+	case 15:
+	case 16:
+	case 17:
+	case 18:
+		output = "You don't need Gas";
+		break;
+	default:
+		output = "if you're not sure you should get some gas.";
+}
+document.getElementById('switch-execute').innerHTML = output;
+						</pre></td>
+		<td class = "cell">
+			<button class="button" id="switch">Execute</button>
+			<p id = "switch-execute"></p></td></tr></table>
 
 
+	<h2> Loops</h2>
+	<p> Loops iterate through a set function and can execute a block of code a given number of times.<a href="https://www.w3schools.com/js/js_loop_for.asp">[1]</a> There are several different kinds of Loops, the most common are <code>for</code> and <code>while</code> loops.  The key differences between these two, is that a <code>for</code> loop will only iterate for a certain period of time or number of loops.  A <code>while</code> loop however, will iterate through the loop so long as a scified condition is true.</p>
+
+<table class = "example"> FOR LOOP
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;h1&gt;Counting&lt;/h1&gt;<br><br>
+							&lt;p&gt; I have a lot of family, I have 2 brothers and 5 sisters. <br> Can you count how many siblings that is?&lt;/p&gt;<br><br>
+							&lt;p id="forloop-execute"&gt;&lt;/p&gt;<br>
+						</td>
+		<td class = "cell"><pre id = "forloop-code">var brothers = 2;
+var sisters =5;
+var i;
+var output='';
+for(i = 1; i<= (brothers + sisters); i++) {
+output += i + '&lt;br&gt;';
+}
+document.getElementById('forloop-execute').innerHTML = output;
+						</pre></td>
+		<td class = "cell">
+			<button class="button" id="forloop">Execute</button>
+			<p id = "forloop-execute"></p></td></tr></table>
+<br>
+<table class = "example"> WHILE LOOP
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;h1&gt;Counting&lt;/h1&gt;<br><br>
+							&lt;p&gt; I have a lot of family, I have 2 brothers and 5 sisters. <br> Can you count how many siblings that is?&lt;/p&gt;<br><br>
+							&lt;p id="whileloop-execute"&gt;&lt;/p&gt;<br>
+						</td>
+		<td class = "cell"><pre id = "whileloop-code">var brothers = 2;
+var sisters =5;
+var i=1;
+var output='';
+while( i<= (brothers + sisters)) {
+output += i + '&lt;br&gt;';
+i++;
+}
+document.getElementById('whileloop-execute').innerHTML = output;
+						</pre></td>
+		<td class = "cell">
+			<button class="button" id="whileloop">Execute</button>
+			<p id = "whileloop-execute"></p></td></tr></table>
+
+
+<h2> Functions and Parameters</h2>
+	<p> </p>
+			<table class = "example"> Functions
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;h1&gt;Addition&lt;/h1&gt;<br><br>
+							&lt;p&gt; Would you like to add two numbers? <br><br>
+							&lt;p id="function-execute"&gt;&lt;/p&gt;<br>
+						</td>
+		<td class = "cell"><pre id = "function-code">
+function add(x, y){ 
+	&lt;!-- x and y are the function parameters --&gt;
+	return +x + +y;
+}
+var input1 = document.getElementById('input1').value;
+var input2 = document.getElementById('input2').value;
+
+document.getElementById('function-execute').innerHTML
+ = input1 + ' + ' + input2 + ' = ' + add(input1, input2);
+						</pre></td>
+		<td class = "cell">
+			Enter a number:
+          <input type="number" id="input1" /><br>
+          Enter a number:
+          <input type="number" id="input2" /><br>
+			<button class="button" id="function">Execute</button>
+			<p id = "function-execute"></p></td></tr></table>
+
+
+<h2> Arrays </h2>
+	<p> </p>
+			<table class = "example"> Arrays
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;h1&gt;Siblings&lt;/h1&gt;<br><br>
+							&lt;p&gt; Would you like to add two numbers? <br><br>
+							&lt;p id="array-execute"&gt;&lt;/p&gt;<br>
+						</td>
+		<td class = "cell"><pre id = "array-code">
+var brothers = ['Justin', 'Russell'];
+var sisters = ['Michelle', 'Wendy', 'Amber', 'Robyn', 'Crystal'];
+var i;
+var bout ='';
+var sout = '';
+for(i = 0; i < brothers.length; i++) {
+bout += brothers[i];
+	if(i + 2 == brothers.length)
+	bout += ' and ';
+	else if((i+1) != brothers.length)
+	bout += ', ';
+}
+for(i = 0; i < sisters.length; i++){
+	sout += sisters[i];
+	if(i + 2 == sisters.length)
+	sout += ' and ';
+	else if((i+1) != sisters.length)
+	sout += ', ';
+}
+document.getElementById('array-execute').innerHTML = 
+'My brothers are ' + bout + ' and my sisters are ' + sout;
+						</pre></td>
+		<td class = "cell">
+			
+			<button class="button" id="array">Execute</button>
+			<p id = "array-execute"></p></td></tr></table>
+<br>
+<table class = "example"> Associative Arrays
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;h1&gt;Siblings&lt;/h1&gt;<br><br>
+							&lt;p&gt; Would you like to add two numbers? <br><br>
+							&lt;p id="aa-execute"&gt;&lt;/p&gt;<br>
+						</td>
+		<td class = "cell"><pre id = "aa-code">
+var soldier = [];
+soldier['health'] = 100;
+soldier['mana'] = 50;
+soldier['stamina'] = 75;
+soldier['level'] = 8;
+soldier['name'] = 'Kelsier';
+soldier['dead'] = false;
+
+var damage = 13;
+
+document.getElementById('aa-execute').innerHTML = 
+'Your soldier ' + soldier['name'] + ' is hit for ' 
++ damage + ' points of damage.' +
+'  He now has ' + (soldier['health'] - damage) 
++ ' points of health left.' 
+						</pre></td>
+		<td class = "cell">
+			
+			<button class="button" id="aa">Execute</button>
+			<p id = "aa-execute"></p></td></tr></table>
+
+<script src="main.js"></script>
   	</body>
 </html>
