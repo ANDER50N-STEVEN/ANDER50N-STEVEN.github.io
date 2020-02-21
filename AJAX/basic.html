@@ -2,11 +2,69 @@
 <!DOCTYPE html>
 <html xmlns = "http://www.w3.org/1999/xhtml">
   <head> <title> Basic JavaScript </title>
+     	<title>CIT261 - Proficiency - Week05</title>
     <base "href = http://localhost/~stevoanderson/" />
+     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 
   </head>
   <body>
+<h1>CIT261 - Proficiency - Week05</h1>
+<h3>Purpose: Demonstrate fluency in Using XMLHTTPRequest to Consume a JSON Web Service. </h3>
 
+<h2> JSON </h2>
+	<p> </p>
+<table class = "example"> JSON Parse
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;p&gt; &lt;/p&gt;<br><br>
+							&lt;p id="ajax-execute"&gt;&lt;/p&gt;<br>
+						</td>
+		<td class = "cell" ><pre  id = "ajax-code">
 
+<!-- var DB = null;
+var class = 0;
+
+function getClass(db, class) {
+  if (db === null) {
+    alert("Database not initialized. Load it before usage.");
+  }
+
+  document.getElementById("ajax-execute").innerHTML =
+    db.classList[class].name +
+    " " +
+    db.classList[class].id;
+
+  document.getElementById("strjson").innerHTML =
+    "All database: " +
+    JSON.stringify(db) +
+    "<br/>" +
+    "Current class: " +
+    JSON.stringify(db.classList[class]);
+}
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+	  DB = JSON.parse(this.responseText);
+      class = 0;
+      getClass(DB, class);
+      class++;
+    }
+  };
+  xhttp.open("GET", "classList.txt", true);
+  xhttp.send();
+} -->
+						</pre></td>
+		<td class = "cell">
+			<button class="button" id="ajax" onclick="loadDoc()">Execute</button>
+			<p id = "ajax-execute"></p></td></tr></table>
+<script src="main.js"></script>
   	</body>
 </html>

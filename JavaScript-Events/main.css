@@ -16,6 +16,10 @@ code {
   border: 1px solid black;
 }
 .cell{
-  width:33%;
+  max-width:30px;
   border: 1px solid black;
+
+}
+pre{
+   white-space:pre-wrap;
 }

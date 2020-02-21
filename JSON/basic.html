@@ -2,18 +2,18 @@
 <!DOCTYPE html>
 <html xmlns = "http://www.w3.org/1999/xhtml">
   <head> <title> Basic JavaScript </title>
-     	<title>CIT261 - Proficiency - Week03</title>
+     	<title>CIT261 - Proficiency - Week04</title>
     <base "href = http://localhost/~stevoanderson/" />
      <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 
   </head>
   <body>
-<h1>CIT261 - Fall 2019 - Proficiency - Week03</h1>
-<h3>Purpose: Demonstrate fluency in Object Creation Functions, Inheritance, Properties, Methods, Instantiation.</h3>
+<h1>CIT261 - Proficiency - Week04</h1>
+<h3>Purpose: Demonstrate fluency in JSON Parse, Stringify.</h3>
 
-<h2> Object Creation</h2>
+<h2> JSON </h2>
 	<p> </p>
-<table class = "example"> Object Literal
+<table class = "example"> JSON Parse
 	<tr>
 		<td class = "cell">Example HTML</td>
 		<td class = "cell">Example JavaScript</td>
@@ -24,20 +24,43 @@
 							&lt;html&gt;<br>
 							&lt;body&gt;<br>
 							&lt;p&gt; &lt;/p&gt;<br><br>
-							&lt;p id="literal-execute"&gt;&lt;/p&gt;<br>
+							&lt;p id="parse-execute"&gt;&lt;/p&gt;<br>
 						</td>
-		<td class = "cell"><pre id = "literal-code">
+		<td class = "cell" ><pre  id = "parse-code">
 
-var player1 = {name:'Gandalf', classs:'Wizard', 
-		level:100, race:'Maia'};
-document.getElementById('literal-execute').innerHTML =
-'Your party leader is a level ' + player1.level +
- ' ' + player1.classs + ' named ' + player1.name;
+
+var output = '';
+var obj= JSON.parse('{ "Student": [ { "name": "Steven Anderson", "degree": "Software Engineering", "gpa": 3.6}, { "name": "Herbert Hoover", "degree": "Political Science", "gpa": 4}] }');
+
+for(var i in obj.Student) {
+  output += 'Name: ' + obj.Student[i].name + '&lt;br&gt;' +'Degree: '
+  + obj.Student[i].degree + '&lt;br&gt;' + 'GPA: ' + obj.Student[i].gpa + '&lt;br&gt;&lt;br&gt;';}
+  document.getElementById('parse-execute').innerHTML = output;
 						</pre></td>
 		<td class = "cell">
-			<button class="button" id="literal">Execute</button>
-			<p id = "literal-execute"></p></td></tr></table>
-
+			<button class="button" id="parse">Execute</button>
+			<p id = "parse-execute"></p></td></tr></table>
+<table class = "example"> JSON Stringify
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;p&gt; &lt;/p&gt;<br><br>
+							&lt;p id="stringify-execute"&gt;&lt;/p&gt;<br>
+						</td>
+		<td class = "cell"><pre id = "stringify-code">
+var obj = { Student: [{ name: "Steven Anderson", degree: "Software Engineering", gpa: 3.6}]};
+var strng = JSON.stringify(obj);
+document.getElementById('stringify-execute').innerHTML = strng;
+						</pre></td>
+		<td class = "cell">
+			<button class="button" id="stringify">Execute</button>
+			<p id = "stringify-execute"></p></td></tr></table>
 <script src="main.js"></script>
   	</body>
 </html>
