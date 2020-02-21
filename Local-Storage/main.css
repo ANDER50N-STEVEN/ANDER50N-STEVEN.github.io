@@ -1,0 +1,21 @@
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 5%;
+}
+
+code {
+  color: red;
+  background-color: lightgrey;
+  padding: 1px;
+}
+
+.example{
+  width:95%; 
+  margin: 0 auto;
+  border: 1px solid black;
+}
+.cell{
+  width:33%;
+  border: 1px solid black;
+}

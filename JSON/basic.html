@@ -2,11 +2,42 @@
 <!DOCTYPE html>
 <html xmlns = "http://www.w3.org/1999/xhtml">
   <head> <title> Basic JavaScript </title>
+     	<title>CIT261 - Proficiency - Week03</title>
     <base "href = http://localhost/~stevoanderson/" />
+     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 
   </head>
   <body>
+<h1>CIT261 - Fall 2019 - Proficiency - Week03</h1>
+<h3>Purpose: Demonstrate fluency in Object Creation Functions, Inheritance, Properties, Methods, Instantiation.</h3>
 
+<h2> Object Creation</h2>
+	<p> </p>
+<table class = "example"> Object Literal
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;p&gt; &lt;/p&gt;<br><br>
+							&lt;p id="literal-execute"&gt;&lt;/p&gt;<br>
+						</td>
+		<td class = "cell"><pre id = "literal-code">
 
+var player1 = {name:'Gandalf', classs:'Wizard', 
+		level:100, race:'Maia'};
+document.getElementById('literal-execute').innerHTML =
+'Your party leader is a level ' + player1.level +
+ ' ' + player1.classs + ' named ' + player1.name;
+						</pre></td>
+		<td class = "cell">
+			<button class="button" id="literal">Execute</button>
+			<p id = "literal-execute"></p></td></tr></table>
+
+<script src="main.js"></script>
   	</body>
 </html>
