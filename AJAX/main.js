@@ -20,38 +20,3 @@ function executeCode(topic) {
   console.style.visibility = "visible";
 }
 
-var DB = null;
-var classes = 0;
-
-function getClass(db, classes) {
-  if (db === null) {
-    alert("Database not initialized. Load it before usage.");
-  }
-
-  document.getElementById("ajax-execute").innerHTML =
-    db.classList[classes].name +
-    " " +
-    db.classList[classes].id;
-
-}
-function loadDoc() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-    DB = JSON.parse(this.responseText);
-      classes = 0;
-      getClass(DB, classes);
-      classes++;
-    }
-  };
-  xhttp.open("GET", "classList.txt", true);
-  xhttp.send();
-}
-
-document.getElementById("ajax").addEventListener(
-  "click",
-  function() {
-    loadDoc();
-  },
-  false
-);
