@@ -31,11 +31,10 @@
 var DB = null;
 var classes = 0;
 
-function getClass(db, classes) {
-var output = '';
-  <!-- if (db === null) {
+function getClass(db) {
+  if ( db === null) {
     alert("Database has not been loaded.  Please try again in a few minutes.");
-  } -->
+  }
 document.getElementById("ajax-execute").innerHTML = '';
 for(i in db.classList){
   document.getElementById("ajax-execute").innerHTML += db.classList[i].name +
@@ -47,8 +46,7 @@ function loadDoc() {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
     DB = JSON.parse(this.responseText);
-      classes = 0;
-      getClass(DB, classes);
+      getClass(DB);
     }
   };
   xhttp.open("GET", "classList.json", true);
