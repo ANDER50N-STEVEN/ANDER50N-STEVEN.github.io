@@ -28,41 +28,7 @@
 						</td>
 		<td class = "cell" ><pre  id = "ajax-code">
 
-var DB = null;
-var classes = 0;
 
-function getClass(db, classes) {
-var output = '';
-  if (db === null) {
-    alert("Database has not been loaded.  Please try again in a few minutes.");
-  }
-
-for(i in db.classList){
-  document.getElementById("ajax-execute").innerHTML += db.classList[i].name +
-    " " + db.classList[i].id + "<br>";
-}
-}
-function loadDoc() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-    DB = JSON.parse(this.responseText);
-      classes = 0;
-      getClass(DB, classes);
-      classes++;
-    }
-  };
-  xhttp.open("GET", "classList.json", true);
-  xhttp.send();
-}
-
-document.getElementById("ajax").addEventListener(
-  "click",
-  function() {
-    loadDoc();
-  },
-  false
-);
 						</pre></td>
 		<td class = "cell">
 			<button class="button" id="ajax">Execute</button>
