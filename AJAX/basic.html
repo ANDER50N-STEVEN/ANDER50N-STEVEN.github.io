@@ -32,15 +32,16 @@ var DB = null;
 var classes = 0;
 
 function getClass(db, classes) {
+var output = '';
   if (db === null) {
-    alert("Database not initialized. Load it before usage.");
+    alert("Database has not been loaded.  Please try again in a few minutes.");
   }
 
-  document.getElementById("ajax-execute").innerHTML =
-    db.classList[classes].name +
-    " " +
-    db.classList[classes].id;
-
+for(i in db.classList){
+    output += db.classList[classes].name +
+    " " + db.classList[classes].id + "\n";
+}
+  document.getElementById("ajax-execute").innerHTML = output;
 }
 function loadDoc() {
   var xhttp = new XMLHttpRequest();
@@ -69,7 +70,7 @@ document.getElementById("ajax").addEventListener(
 			<p id = "ajax-execute"></p></td></tr></table>
 
 
-			
+
 <script src="main.js"></script>
   	</body>
 </html>
