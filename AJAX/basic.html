@@ -38,10 +38,9 @@ var output = '';
   }
 
 for(i in db.classList){
-    output += db.classList[classes].name +
-    " " + db.classList[classes].id + "\n";
+  document.getElementById("ajax-execute").innerHTML += db.classList[i].name +
+    " " + db.classList[i].id + "<br>";
 }
-  document.getElementById("ajax-execute").innerHTML = output;
 }
 function loadDoc() {
   var xhttp = new XMLHttpRequest();
