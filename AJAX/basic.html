@@ -33,10 +33,10 @@ var classes = 0;
 
 function getClass(db, classes) {
 var output = '';
-  if (db === null) {
+  <!-- if (db === null) {
     alert("Database has not been loaded.  Please try again in a few minutes.");
-  }
-
+  } -->
+document.getElementById("ajax-execute").innerHTML = '';
 for(i in db.classList){
   document.getElementById("ajax-execute").innerHTML += db.classList[i].name +
     " " + db.classList[i].id + "\n";
@@ -49,7 +49,6 @@ function loadDoc() {
     DB = JSON.parse(this.responseText);
       classes = 0;
       getClass(DB, classes);
-      classes++;
     }
   };
   xhttp.open("GET", "classList.json", true);
