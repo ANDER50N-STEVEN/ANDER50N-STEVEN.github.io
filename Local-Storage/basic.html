@@ -2,11 +2,69 @@
 <!DOCTYPE html>
 <html xmlns = "http://www.w3.org/1999/xhtml">
   <head> <title> Basic JavaScript </title>
+     	<title>CIT261 - Proficiency - Week06</title>
     <base "href = http://localhost/~stevoanderson/" />
+     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 
   </head>
   <body>
+<h1>CIT261 - Proficiency - Week06</h1>
+<h3>Purpose: Local Storage API, Storing and Retrieving Simple Data, Arrays, Associative Arrays, and Objects.</h3>
+
+<h2> Local Storage </h2>
+	<p> </p>
+<table class = "example"> JSON Parse
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;p&gt; &lt;/p&gt;<br><br>
+							&lt;p id="local-execute"&gt;&lt;/p&gt;<br>
+						</td>
+		<td class = "cell" ><pre  id = "local-code">
+  function Name() {
+              var fullName = {};
+              fullName['first'] = document.getElementById("first").value;
+              fullName['last'] = document.getElementById("last").value;
+              localStorage.setItem("fullName", JSON.stringify(fullName));
+              var obj = JSON.parse(localStorage.fullName);
+              var output = "Welcome " + obj['first'] + " " + obj['last'] + "!";
+              document.getElementById("showName").innerHTML = output;
+          }
 
 
+						</pre></td>
+		<td class = "cell">
+			<input id="first" type="text" name="first" placeholder="Please enter your first name">
+			<input id="last" type="text" name="last" placeholder="Please enter your last name">
+			<button class="button" id="local">Execute</button>
+			<p id = "local-execute"></p></td></tr></table>
+<table class = "example"> JSON Stringify
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;p&gt; &lt;/p&gt;<br><br>
+							&lt;p id="stringify-execute"&gt;&lt;/p&gt;<br>
+						</td>
+		<td class = "cell"><pre id = "stringify-code">
+var obj = { Student: [{ name: "Steven Anderson", degree: "Software Engineering", gpa: 3.6}]};
+var strng = JSON.stringify(obj);
+document.getElementById('stringify-execute').innerHTML = strng;
+						</pre></td>
+		<td class = "cell">
+			<button class="button" id="stringify">Execute</button>
+			<p id = "stringify-execute"></p></td></tr></table>
+<script src="main.js"></script>
   	</body>
 </html>

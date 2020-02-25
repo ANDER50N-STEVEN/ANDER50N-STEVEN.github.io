@@ -21,3 +21,12 @@ function executeCode(topic) {
 }
 
 
+  function Name() {
+              var fullName = {};
+              fullName['first'] = document.getElementById("first").value;
+              fullName['last'] = document.getElementById("last").value;
+              localStorage.setItem("fullName", JSON.stringify(fullName));
+              var obj = JSON.parse(localStorage.fullName);
+              var output = "Welcome " + obj['first'] + " " + obj['last'] + "!";
+              document.getElementById("showName").innerHTML = output;
+          }

@@ -6,14 +6,18 @@
     <base "href = http://localhost/~stevoanderson/" />
      <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 
+
+     <!-- Local Host didn't like my Json File and github doesn't like my txt file. 
+     They are both in there if they need to be tested. -->
+
   </head>
   <body>
 <h1>CIT261 - Proficiency - Week05</h1>
 <h3>Purpose: Demonstrate fluency in Using XMLHTTPRequest to Consume a JSON Web Service. </h3>
 
-<h2> JSON </h2>
+<h2> AJAX </h2>
 	<p> </p>
-<table class = "example"> JSON Parse
+<table class = "example"> JSON xhttp
 	<tr>
 		<td class = "cell">Example HTML</td>
 		<td class = "cell">Example JavaScript</td>
@@ -50,6 +54,7 @@ function loadDoc() {
     }
   };
   xhttp.open("GET", "classList.json", true);
+  <!-- xhttp.open("GET", "classlist.txt", true); -->
   xhttp.send();
 }
 
@@ -64,7 +69,54 @@ document.getElementById("ajax").addEventListener(
 		<td class = "cell">
 			<button class="button" id="ajax">Execute</button>
 			<p id = "ajax-execute"></p></td></tr></table>
+<h2> API </h2>
+	<p> </p>
+<table class = "example"> API from public source
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;p&gt; &lt;/p&gt;<br><br>
+							&lt;p id="-execute"&gt;&lt;/p&gt;<br>
+						</td>
+		<td class = "cell" ><pre  id = "-code">
 
+function loadWeather(city) {
+  const xhttp = new XMLHttpRequest();
+  const uri = encodeURI(
+    "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=468d285f51f1746352526f9b57d363d2&units=imperial"
+  );
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      const container = document.getElementById("execute");
+      const response = JSON.parse(this.responseText);
+      var buffer = "";
+      container.style.visibility = "visible";
+      buffer += `City: ${response.name}, ${response.sys.country}\n`;
+      buffer += `Temperature: ${response.main.temp} F\n`;
+      buffer += `Humidity: ${response.main.humidity} %\n`;
+
+      container.innerHTML = buffer;
+    }
+  };
+  xhttp.open("GET", uri, true);
+  xhttp.send();
+}
+
+
+						</pre></td>
+		<td class = "cell">
+			<button id="portland" onclick="loadWeather('portland')">Portland</button><br>
+			<button id="rexburg" onclick="loadWeather('rexburg')">Rexburg</button><br>
+			<button id="chicago" onclick="loadWeather('chicago')">Chicago</button><br>
+			<button id="orlando" onclick="loadWeather('orlando')">Orlando</button><br>
+			<p id = "execute"></p></td></tr></table>
 
 
 <script src="main.js"></script>
