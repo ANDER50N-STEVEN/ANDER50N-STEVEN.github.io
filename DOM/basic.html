@@ -2,11 +2,150 @@
 <!DOCTYPE html>
 <html xmlns = "http://www.w3.org/1999/xhtml">
   <head> <title> Basic JavaScript </title>
+     	<title>CIT261 - Proficiency - Week07</title>
     <base "href = http://localhost/~stevoanderson/" />
+     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 
   </head>
   <body>
+<h1>CIT261 - Proficiency - Week07</h1>
+<h3>Purpose:  Demonstrate fluency in DOM Manipulation Using createElement, appendChild, insertBefore, removeChild, etc..</h3>
+
+<h2> DOM </h2>
+	<p> </p>
+<table class = "example"> createElement and appendChild
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;div id="c"&gt;<br>
+							  &lt;ul id="myList"&gt;<br>
+							    &lt;li&gt;Example one&lt;/li&gt;<br>
+							    &lt;li&gt;Example two&lt;/li&gt;<br>
+							    &lt;li&gt;Example three&lt;/li&gt;<br>
+							    &lt;li&gt;Example four&lt;/li&gt;<br>
+							    &lt;li&gt;Example five&lt;/li&gt;<br>
+							    &lt;li&gt;Example Six&lt;/li&gt;<br>
+							  &lt;/ul&gt;<br>
+							  &lt;p id="append-execute"&gt;Example text&lt;/p&gt;<br>
+							&lt;/div&gt;<br><br>
+						</td>
+		<td class = "cell" ><pre  id = "append-code">
+
+var myList = document.getElementById('myList'),
+    container = document.getElementById('c');
+  	container.appendChild(myList);
+
+						</pre></td>
+		<td class = "cell">
+			<div id="c">
+			  <ul id="myList">
+			    <li>Example one</li>
+			    <li>Example two</li>
+			    <li>Example three</li>
+			    <li>Example four</li>
+			    <li>Example five</li>
+			    <li>Example Six</li>
+			  </ul>
+			  <p>Example text</p>
+			</div>
+			<button class="button" id="append">Execute</button>
+			</td></tr></table>
+<table class = "example"> insertBefore
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+			<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;div id="c"&gt;<br>
+							  &lt;ul id="myList"&gt;<br>
+							    &lt;li&gt;Example one&lt;/li&gt;<br>
+							    &lt;li&gt;Example two&lt;/li&gt;<br>
+							    &lt;li&gt;Example three&lt;/li&gt;<br>
+							    &lt;li&gt;Example four&lt;/li&gt;<br>
+							    &lt;li&gt;Example five&lt;/li&gt;<br>
+							    &lt;li&gt;Example Six&lt;/li&gt;<br>
+							  &lt;/ul&gt;<br>
+							  &lt;p id="insert-execute"&gt;Example text&lt;/p&gt;<br>
+							&lt;/div&gt;<br><br>
+						</td>
+		<td class = "cell" ><pre  id = "insert-code">
+
+var myInsertList = document.getElementById('insertList');
+var newItem = document.createElement('LI');
+var before = document.createTextNode('Example zero');
+newItem.appendChild(before);
+myInsertList.insertBefore(newItem, myInsertList.childNodes[0]);
 
 
+						</pre></td>
+		<td class = "cell">
+			<div id="i">
+			  <ul id="insertList">
+			    <li>Example one</li>
+			    <li>Example two</li>
+			    <li>Example three</li>
+			    <li>Example four</li>
+			    <li>Example five</li>
+			    <li>Example Six</li>
+			  </ul>
+			</div>
+			<button class="button" id="insert">Execute</button>
+			</td></tr></table>
+
+			<table class = "example"> RemoveChild
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+			<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;div id="c"&gt;<br>
+							  &lt;ul id="myList"&gt;<br>
+							    &lt;li&gt;Example one&lt;/li&gt;<br>
+							    &lt;li&gt;Example two&lt;/li&gt;<br>
+							    &lt;li&gt;Example three&lt;/li&gt;<br>
+							    &lt;li&gt;Example four&lt;/li&gt;<br>
+							    &lt;li&gt;Example five&lt;/li&gt;<br>
+							    &lt;li&gt;Example Six&lt;/li&gt;<br>
+							  &lt;/ul&gt;<br>
+							  &lt;p id="remove-execute"&gt;Example text&lt;/p&gt;<br>
+							&lt;/div&gt;<br><br>
+						</td>
+		<td class = "cell" ><pre  id = "remove-code">
+
+var par = document.getElementById('par');
+var containerRemove = document.getElementById('r');
+containerRemove.removeChild(par);
+
+
+						</pre></td>
+		<td class = "cell">
+			<div id="r">
+			  <ul id="List">
+			    <li>Example one</li>
+			    <li>Example two</li>
+			    <li>Example three</li>
+			    <li>Example four</li>
+			    <li>Example five</li>
+			    <li>Example Six</li>
+			  </ul>
+			  <p id='par'>Example text</p>
+			</div>
+			<button class="button" id="remove">Execute</button>
+			</td></tr></table>
+<script src="main.js"></script>
   	</body>
 </html>

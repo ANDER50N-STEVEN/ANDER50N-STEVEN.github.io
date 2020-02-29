@@ -1,25 +1,14 @@
-window.onload = function() {
-  const buttons = document.getElementsByClassName("button");
 
-  for (i = 0; i < buttons.length; i++) {
-    buttons[i].onclick = function(e) {
-      const ev = e || window.event;
-      const target = ev.target || ev.srcElement;
-      executeCode(target);
-    };
-  }
-};
-
-function executeCode(topic) {
-  const id = topic.getAttribute("id");
-
-  const code = document.getElementById(`${id}-code`);
-  const console = document.getElementById(`${id}-execute`);
-
-  console.innerHTML = eval(code.innerText);
-  console.style.visibility = "visible";
-}
-
+ function sName() {
+              const first = document.getElementById("sfirst").value;
+              const last = document.getElementById("slast").value;
+              localStorage.setItem("first", first);
+              localStorage.setItem("last", last);
+              var output = "Welcome " + localStorage.first + " " + localStorage.last + "!";
+              if(localStorage.first === '' && localStorage.last === '')
+                output = "Welcome, but please enter your name";
+              document.getElementById("simple-execute").innerHTML = output;
+          }
 
   function Name() {
               var fullName = {};
@@ -28,5 +17,7 @@ function executeCode(topic) {
               localStorage.setItem("fullName", JSON.stringify(fullName));
               var obj = JSON.parse(localStorage.fullName);
               var output = "Welcome " + obj['first'] + " " + obj['last'] + "!";
-              document.getElementById("showName").innerHTML = output;
+              if(obj['first'] === '' && obj['last'] === '')
+                output = "Welcome, but please enter your name";
+              document.getElementById("local-execute").innerHTML = output;
           }

@@ -2,11 +2,77 @@
 <!DOCTYPE html>
 <html xmlns = "http://www.w3.org/1999/xhtml">
   <head> <title> Basic JavaScript </title>
+     	<title>CIT261 - Proficiency - Week08</title>
     <base "href = http://localhost/~stevoanderson/" />
+     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 
   </head>
   <body>
+<h1>CIT261 - Proficiency - Week08</h1>
+<h3>Purpose: Demonstrate fluency in Manipulating CSS Class Properties Using JavaScript. </h3>
 
-
+<h2> CSS </h2>
+	<p> </p>
+<table class = "example"> Color
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;p&gt; &lt;/p&gt;<br><br>
+							&lt;p id="color-execute"&gt;&lt;/p&gt;<br>
+						</td>
+		<td class = "cell" ><pre  id = "color-code">
+document.getElementById("color-execute").style.color = "lightblue";
+						</pre></td>
+		<td class = "cell">
+			<button class="button" id="color">Execute</button>
+			<p id = "color-execute" class="color-execute">I am red!!</p></td></tr></table>
+<table class = "example"> Font
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;p&gt; &lt;/p&gt;<br><br>
+							&lt;p id="font-execute"&gt;&lt;/p&gt;<br>
+						</td>
+		<td class = "cell"><pre id = "font-code">
+document.getElementById("font-execute").style.fontFamily = "Arial, Helvetica, sans-serif";
+document.getElementById("font-execute").style.fontWeight= "normal";
+						</pre></td>
+		<td class = "cell">
+			<button class="button" id="font">Execute</button>
+			<p id = "font-execute">I am Bold!!</p></td></tr></table>
+			<table class = "example"> Style
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;p&gt; &lt;/p&gt;<br><br>
+							&lt;p id="style-execute"&gt;&lt;/p&gt;<br>
+						</td>
+		<td class = "cell"><pre id = "style-code">
+const element = document.querySelector('.style-execute');
+element.classList.remove('style-execute')
+element.classList.add('new')
+						</pre></td>
+		<td class = "cell">
+			<button class="button" id="style">Execute</button>
+			<p id = "style-execute" class = "style-execute">I am Normal.</p></td></tr></table>
+<script src="main.js"></script>
   	</body>
 </html>

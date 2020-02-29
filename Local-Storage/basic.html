@@ -13,7 +13,37 @@
 
 <h2> Local Storage </h2>
 	<p> </p>
-<table class = "example"> JSON Parse
+	<table class = "example"> Simple Data
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;p&gt; &lt;/p&gt;<br><br>
+							&lt;p id="simple-execute"&gt;&lt;/p&gt;<br>
+						</td>
+		<td class = "cell" ><pre  id = "simple-code">
+  function sName() {
+              const first = document.getElementById("sfirst").value;
+              const last = document.getElementById("slast").value;
+              localStorage.setItem("first", first);
+              localStorage.setItem("last", last);
+              var output = "Welcome " + localStorage.first + " " + localStorage.last + "!";
+              if(localStorage.first === '' && localStorage.last === '')
+                output = "Welcome, but please enter your name";
+              document.getElementById("simple-execute").innerHTML = output;
+          }
+						</pre></td>
+		<td class = "cell">
+			<input id="sfirst" type="text" name="first" placeholder="Please enter your first name">
+			<input id="slast" type="text" name="last" placeholder="Please enter your last name">
+			<button  id="simple" onclick="sName()" >Execute</button>
+			<p id = "simple-execute"></p></td></tr></table>
+<table class = "example"> Associative Arrays and Objects
 	<tr>
 		<td class = "cell">Example HTML</td>
 		<td class = "cell">Example JavaScript</td>
@@ -34,37 +64,17 @@
               localStorage.setItem("fullName", JSON.stringify(fullName));
               var obj = JSON.parse(localStorage.fullName);
               var output = "Welcome " + obj['first'] + " " + obj['last'] + "!";
-              document.getElementById("showName").innerHTML = output;
+              if(obj['first'] === '' && obj['last'] === '')
+                output = "Welcome, but please enter your name";
+              document.getElementById("local-execute").innerHTML = output;
           }
-
-
 						</pre></td>
 		<td class = "cell">
 			<input id="first" type="text" name="first" placeholder="Please enter your first name">
 			<input id="last" type="text" name="last" placeholder="Please enter your last name">
-			<button class="button" id="local">Execute</button>
+			<button id="local" onclick="Name()">Execute</button>
 			<p id = "local-execute"></p></td></tr></table>
-<table class = "example"> JSON Stringify
-	<tr>
-		<td class = "cell">Example HTML</td>
-		<td class = "cell">Example JavaScript</td>
-		<td class = "cell">Output</td>
-	</tr>
-	<tr>
-		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
-							&lt;html&gt;<br>
-							&lt;body&gt;<br>
-							&lt;p&gt; &lt;/p&gt;<br><br>
-							&lt;p id="stringify-execute"&gt;&lt;/p&gt;<br>
-						</td>
-		<td class = "cell"><pre id = "stringify-code">
-var obj = { Student: [{ name: "Steven Anderson", degree: "Software Engineering", gpa: 3.6}]};
-var strng = JSON.stringify(obj);
-document.getElementById('stringify-execute').innerHTML = strng;
-						</pre></td>
-		<td class = "cell">
-			<button class="button" id="stringify">Execute</button>
-			<p id = "stringify-execute"></p></td></tr></table>
+
 <script src="main.js"></script>
   	</body>
 </html>

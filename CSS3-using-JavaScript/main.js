@@ -13,10 +13,11 @@ window.onload = function() {
 function executeCode(topic) {
   const id = topic.getAttribute("id");
 
-  const code = document.getElementById(`${id}-code`);
-  const console = document.getElementById(`${id}-execute`);
+  const code = document.getElementById(id+"-code");
+  const console = document.getElementById(id+"-execute");
 
-  console.innerHTML = eval(code.innerText);
+  // console.innerHTML =
+   eval(code.innerText);
   console.style.visibility = "visible";
 }
 
