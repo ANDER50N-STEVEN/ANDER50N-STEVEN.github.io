@@ -16,6 +16,7 @@
 
 <table class = "example"> Variables
 	<tr>
+		<td> Basic</td></tr><tr>
 		<td class = "cell">Example HTML</td>
 		<td class = "cell">Example JavaScript</td>
 		<td class = "cell">Output</td>
@@ -37,7 +38,16 @@ document.getElementById('variable-execute').innerHTML = output;
 						</pre></td>
 		<td class = "cell">
 			<button class="button" id="variable">Execute</button>
-			<p id = "variable-execute"></p></td></tr></table>
+			<p id = "variable-execute"></p></td></tr>
+			<tr><td style="width: 33%;"> Working</td></tr>
+			<tr>
+				<td>
+				<p>How many siblings do you have?</p>
+				<input type="number" id="siblings" /><button onclick="sibling()"> Enter</button><br>
+				<p id = "siblings-output"></p>
+
+			</td></tr>
+		</table>
 <br>
 
 				<h2> Conditional Statements </h2>
@@ -74,7 +84,18 @@ document.getElementById('if-execute').innerHTML = output;
 						</pre></td>
 		<td class = "cell">
 			<button class="button" id="if">Execute</button>
-			<p id = "if-execute"></p></td></tr></table>
+			<p id = "if-execute"></p></td></tr>
+			<tr><td style="width: 33%;" > Working</td></tr>
+			<tr>
+				<td>
+				<p>Do you have more brothers or sisters?</p>
+				<input type="number" id="brothers" placeholder="Brothers"/><br>
+				<input type="number" id="sisters" placeholder="Sisters"/><br>
+				<button onclick="solve()"> Enter</button><br>
+				<p id = "solveoutput"></p>
+
+			</td></tr>
+		</table>
 <br>
 <table class = "example"> Switch Case
 	<tr>
@@ -129,7 +150,17 @@ document.getElementById('switch-execute').innerHTML = output;
 						</pre></td>
 		<td class = "cell">
 			<button class="button" id="switch">Execute</button>
-			<p id = "switch-execute"></p></td></tr></table>
+			<p id = "switch-execute"></p></td></tr>
+			<tr><td style="width: 33%;" > Working</td></tr>
+			<tr>
+				<td>
+				<p>What Grade did you get?</p>
+				<input type="text" id="grade" placeholder="A,B,C..."/><br>
+				<button onclick="grade()"> Enter</button><br>
+				<p id = "gradeoutput"></p>
+
+			</td></tr>
+		</table>
 
 
 	<h2> Loops</h2>
@@ -160,7 +191,17 @@ document.getElementById('forloop-execute').innerHTML = output;
 						</pre></td>
 		<td class = "cell">
 			<button class="button" id="forloop">Execute</button>
-			<p id = "forloop-execute"></p></td></tr></table>
+			<p id = "forloop-execute"></p></td></tr>
+			<tr><td style="width: 33%;" > Working</td></tr>
+			<tr>
+				<td>
+				<p>how far into the alphabet would you like me to count?</p>
+				<input type="number" id="alpha" placeholder="up to 26"/><br>
+				<button onclick="alpha()"> Enter</button><br>
+				<p id = "alphaoutput"></p>
+
+			</td></tr>
+		</table>
 <br>
 <table class = "example"> WHILE LOOP
 	<tr>
@@ -188,7 +229,17 @@ document.getElementById('whileloop-execute').innerHTML = output;
 						</pre></td>
 		<td class = "cell">
 			<button class="button" id="whileloop">Execute</button>
-			<p id = "whileloop-execute"></p></td></tr></table>
+			<p id = "whileloop-execute"></p></td></tr>
+			<tr><td style="width: 33%;" > Working</td></tr>
+			<tr>
+				<td>
+				<p>When should I stop counting?</p>
+				<input type="number" id="count" /><br>
+				<button onclick="count()"> Enter</button><br>
+				<p id = "countoutput"></p>
+
+			</td></tr>
+		</table>
 
 
 <h2> Functions and Parameters</h2>
@@ -269,7 +320,31 @@ document.getElementById('array-execute').innerHTML =
 		<td class = "cell">
 			
 			<button class="button" id="array">Execute</button>
-			<p id = "array-execute"></p></td></tr></table>
+			<p id = "array-execute"></p></td></tr>
+			<tr><td style="width: 33%;" > Working</td></tr>
+			<tr>
+				<td>
+				<p>What would you like to add to your shopping list?</p>
+
+			<form id="form_id" onsubmit="return false;">
+
+<input type="checkbox" value="Chicken" /> Chicken<br />
+<input type="checkbox" value="Beef" /> Beef <br />
+<input type="checkbox" value="Milk" /> Milk <br />
+<input type="checkbox" value="Eggs" /> Eggs <br />
+<input type="checkbox" value="Onion" /> Onion <br />
+<input type="checkbox" value="Carrots" /> Carrots <br />
+<input type="checkbox" value="Bread" /> Bread <br />
+<input type="checkbox" value="Potatoes" /> Potatoes <br />
+<input type="checkbox" value="Apples" /> Apples <br />
+<input type="checkbox" value="Strawberries" /> Strawberries <br />
+
+<button onclick="list();">Enter</button>
+</form>
+				<p id = "arrayoutput"></p>
+
+			</td></tr>
+		</table>
 <br>
 <table class = "example"> Associative Arrays
 	<tr>
@@ -305,7 +380,26 @@ document.getElementById('aa-execute').innerHTML =
 		<td class = "cell">
 			
 			<button class="button" id="aa">Execute</button>
-			<p id = "aa-execute"></p></td></tr></table>
+			<p id = "aa-execute"></p></td></tr>
+			<tr><td style="width: 33%;" > Working</td></tr>
+			<tr>
+				<td>
+				<p>Create a Character</p>
+
+			<form id="character" onsubmit="return false;">
+
+<input type="text" id ="name"/> Name<br />
+<input type="number" id="health" /> Health <br />
+<input type="number" id="mana" /> Mana <br />
+<input type="number" id="stamina" /> Stamina <br />
+<input type="number" id="level" /> Level <br />
+
+<button onclick="character();">Enter</button>
+</form>
+				<p id = "objoutput"></p>
+
+			</td></tr>
+		</table>
 
 <script src="main.js"></script>
   	</body>

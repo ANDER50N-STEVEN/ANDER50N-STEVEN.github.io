@@ -28,7 +28,7 @@ pre{
   opacity: 1;
 }
 
-.transition-execute-fade{
+#transition-execute-fade{
   opacity: 0;
   transition: 2s;
 }
