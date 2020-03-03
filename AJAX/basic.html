@@ -12,6 +12,8 @@
 
   </head>
   <body>
+            <a href="../index.html">Index</a>
+
 <h1>CIT261 - Proficiency - Week05</h1>
 <h3>Purpose: Demonstrate fluency in Using XMLHTTPRequest to Consume a JSON Web Service. </h3>
 
@@ -117,6 +119,27 @@ function loadWeather(city) {
 			<button id="chicago" onclick="loadWeather('chicago')">Chicago</button><br>
 			<button id="orlando" onclick="loadWeather('orlando')">Orlando</button><br>
 			<p id = "execute"></p></td></tr></table>
+
+            <table class="example"> Working
+      <tr>
+        <td class="cell">
+        <p>Enter a City and Choose what you would like to know</p>
+        <form id="weather">
+        <input type="text" id ="city"/> City<br />
+
+      <input type="radio" value="far" name="temp" /> Farenheit <br />
+      <input type="radio" value="cel" name="temp" /> Celsius <br />
+      <input type="checkbox" id="humidity" /> Humidity <br />
+      <input type="checkbox" id="description" /> Description <br />
+      <input type="checkbox" id="wind" /> Wind <br />
+
+    </form>
+      
+        <button onclick="getWeather(document.getElementById('city').value)"> Enter</button><br>
+        <p id = "objoutput"></p>
+
+      </td></tr>
+    </table>
 
 
 <script src="main.js"></script>

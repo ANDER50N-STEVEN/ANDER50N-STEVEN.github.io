@@ -1,23 +1,26 @@
-window.onload = function() {
-  const buttons = document.getElementsByClassName("button");
-
-  for (i = 0; i < buttons.length; i++) {
-    buttons[i].onclick = function(e) {
-      const ev = e || window.event;
-      const target = ev.target || ev.srcElement;
-      executeCode(target);
-    };
-  }
-};
-
-function executeCode(topic) {
-  const id = topic.getAttribute("id");
-
-  const code = document.getElementById(`${id}-code`);
-  const console = document.getElementById(`${id}-execute`);
-
-  console.innerHTML = eval(code.innerText);
-  console.style.visibility = "visible";
-}
+const button = document.querySelector('button');
+button.addEventListener('click', event => {
+  button.innerHTML = `Click count: ${event.detail}`;
+});
 
 
+let test = document.getElementById("test");
+          
+test.addEventListener("mouseenter", function( event ) {  
+          event.target.style.color = "purple";
+
+          setTimeout(function() {
+            event.target.style.color = "";
+          }, 500);
+        }, false);
+
+
+        test.addEventListener("mouseover", function( event ) {   
+
+          event.target.style.color = "orange";
+
+
+          setTimeout(function() {
+            event.target.style.color = "";
+          }, 500);
+        }, false);

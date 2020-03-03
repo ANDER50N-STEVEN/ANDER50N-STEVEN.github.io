@@ -2,11 +2,75 @@
 <!DOCTYPE html>
 <html xmlns = "http://www.w3.org/1999/xhtml">
   <head> <title> Basic JavaScript </title>
+     	<title>CIT261 - Proficiency - Week09</title>
     <base "href = http://localhost/~stevoanderson/" />
+     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 
   </head>
   <body>
+<h1>CIT261 - Proficiency - Week09</h1>
+<h3>Purpose: Demonstrate fluency in Creating CSS3 Transitions and Animations in CSS and triggering them with JavaScript. </h3>
 
+<h2> CSS Transistions and Animations </h2>
+	<p> </p>
+<table class = "example"> Transitions
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;p&gt; &lt;/p&gt;<br><br>
+							&lt;p id="transition-execute"&gt;&lt;/p&gt;<br>
+						</td>
+		<td class = "cell" ><pre  id = "transition-code">
 
+function fade(){
+  const transition = document.getElementById("transition-execute");
+  transition.style.opacity = 0;
+  transition.style.transition = "2s";
+}
+function reset(){
+  const transition = document.getElementById("transition-execute");
+  transition.style.opacity = "initial";
+}
+						</pre></td>
+		<td class = "cell">
+			<button onclick="fade()" id="transition">Execute</button>
+			<button onclick="reset()" id="transition">Reset</button>
+
+			<p id = "transition-execute"> Something Something Dark Side</p></td></tr></table>
+<table class = "example"> JSON Stringify
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;p&gt; &lt;/p&gt;<br><br>
+							&lt;p id="animation-execute"&gt;&lt;/p&gt;<br>
+						</td>
+		<td class = "cell"><pre id = "animation-code">
+function stop(){
+  const animation = document.getElementById("animation-execute");
+  animation.style.animationPlayState = "paused";
+}
+function start(){
+  const animation = document.getElementById("animation-execute");
+  animation.style.animationPlayState = "initial";
+}
+						</pre></td>
+		<td class = "cell">
+			<button onclick="start()" id="animation">Start</button>
+			<button onclick="stop()" id="animation">Stop</button>
+			<div class = "scroll">
+			<p id = "animation-execute"> Something Something Dark Side</p></div></td></tr></table>
+<script src="main.js"></script>
   	</body>
 </html>

@@ -8,6 +8,8 @@
 
   </head>
   <body>
+  	  	  	<a href="../index.html">Index</a>
+
 <h1>CIT261 - Proficiency - Week04</h1>
 <h3>Purpose: Demonstrate fluency in JSON Parse, Stringify.</h3>
 
@@ -61,6 +63,23 @@ document.getElementById('stringify-execute').innerHTML = strng;
 		<td class = "cell">
 			<button class="button" id="stringify">Execute</button>
 			<p id = "stringify-execute"></p></td></tr></table>
+
+			<table class="example"> Working
+			<tr>
+				<td class="cell">
+				<p>Create JSON</p>
+				<form id="Student">
+				<input type="text" id ="name"/> Name<br />
+			<input type="text" id="degree" /> Degree <br />
+			<input type="text" id="year" /> Year <br />
+			<input type="number" id="gpa" /> GPA <br />
+		</form>
+			
+				<button onclick="createJSON(document.getElementById('Student'))"> Enter</button><br>
+				<p id = "objoutput"></p>
+
+			</td></tr>
+		</table>
 <script src="main.js"></script>
   	</body>
 </html>

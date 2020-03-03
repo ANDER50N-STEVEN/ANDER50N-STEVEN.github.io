@@ -21,3 +21,14 @@ function executeCode(topic) {
 }
 
 
+function createJSON(item){
+  var obj= item;
+  var json = "{" + obj.id + ": [{";
+  for(var i = 0; i < obj.elements.length; i++){
+      json+= "\"" + obj.elements[i].id + "\": \"" + obj.elements[i].value + "\"";
+      if(obj.elements.length-1 != i)
+        json+=", ";
+  }
+  json+="}]}";
+  document.getElementById("objoutput").innerHTML = json;
+}

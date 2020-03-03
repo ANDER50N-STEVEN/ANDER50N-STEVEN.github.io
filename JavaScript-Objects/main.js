@@ -21,3 +21,19 @@ function executeCode(topic) {
 }
 
 
+function createObj(){
+  function Character(name, classs, level, race, age) {
+  this.name = name;
+  this.classs = classs;
+  this.level = level;
+  this.race = race;
+  this.age = age;
+}
+var name = document.getElementById("name").value;
+var classs = document.getElementById("classs").value;
+var level = document.getElementById("level").value;
+var race = document.getElementById("race").value;
+var age =document.getElementById("age").value;
+var player = new Character(name, classs, level, race, age);
+document.getElementById("objoutput").innerHTML = JSON.stringify(player);
+}

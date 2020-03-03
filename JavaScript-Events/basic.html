@@ -2,11 +2,80 @@
 <!DOCTYPE html>
 <html xmlns = "http://www.w3.org/1999/xhtml">
   <head> <title> Basic JavaScript </title>
+     	<title>CIT261 - Proficiency - Week04</title>
     <base "href = http://localhost/~stevoanderson/" />
+     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 
   </head>
   <body>
+  	  	  	<a href="../index.html">Index</a>
 
+<h1>CIT261 - Proficiency - Week10</h1>
+<h3>Purpose: Demonstrate fluency in Standard JavaScript Events Including those for Mobile Devices ( Ex. onTouchBegin, onLoad, etc.) and Animation and Transition Events. 
+</h3>
 
+<h2> Events </h2>
+	<p> </p>
+<table class = "example"> On Click
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;p&gt; &lt;/p&gt;<br><br>
+							&lt;p id="parse-execute"&gt;&lt;/p&gt;<br>
+						</td>
+		<td class = "cell" ><pre  id = "onClick-code">
+const button = document.querySelector('button');
+button.addEventListener('click', event => {
+  button.innerHTML = `Click count: ${event.detail}`;
+});
+						</pre></td>
+		<td class = "cell">
+			<button class="button" id="onClick">Execute</button>
+			<p id = "onClick-execute"></p></td></tr></table>
+<table class = "example"> On MouseOver
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example JavaScript</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							&lt;ul id="test"&gt;<br><br>
+							&lt;li&gt; item 1&lt;/li&gt;<br>
+							&lt;li&gt; item 2&lt;/li&gt;<br>
+							&lt;li&gt; item 3&lt;/li&gt;&lt;/ul&gt;<br>
+						</td>
+		<td class = "cell"><pre id = "over-code">
+let test = document.getElementById("test");
+test.addEventListener("mouseenter", function( event ) {  
+	event.target.style.color = "purple";
+	setTimeout(function() {
+		event.target.style.color = "";
+	}, 500);
+}, false);
+
+test.addEventListener("mouseover", function( event ) {   
+	event.target.style.color = "orange";
+	setTimeout(function() {
+		event.target.style.color = "";
+	}, 500);
+}, false);
+						</pre></td>
+		<td class = "cell">
+			<ul id="test">
+			  <li>item 1</li>
+			  <li>item 2</li>
+			  <li>item 3</li>
+			</ul>
+			</td></tr></table>
+<script src="main.js"></script>
   	</body>
 </html>
