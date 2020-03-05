@@ -21,3 +21,9 @@ function executeCode(topic) {
 }
 
 
+var slider = document.getElementById("myRange");
+var man= document.getElementById("manipulate");
+
+slider.oninput = function(){
+  man.style.transform = "rotate(" + this.value+ "deg)";
+}

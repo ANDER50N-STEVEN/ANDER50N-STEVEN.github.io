@@ -2,19 +2,19 @@
 <!DOCTYPE html>
 <html xmlns = "http://www.w3.org/1999/xhtml">
   <head> <title> Basic JavaScript </title>
-     	<title>CIT261 - Proficiency - Week09</title>
+     	<title>CIT261 - Proficiency - Week14</title>
     <base "href = http://localhost/~stevoanderson/" />
      <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 
   </head>
   <body>
   	<a href="../index.html">Index</a>
-<h1>CIT261 - Proficiency - Week09</h1>
-<h3>Purpose: Demonstrate fluency in Creating CSS3 Transitions and Animations in CSS and triggering them with JavaScript. </h3>
+<h1>CIT261 - Proficiency - Week14</h1>
+<h3>Purpose: Demonstrate fluency in Designing, Defining, and Triggering CSS3 Animations without Custom Libraries (Thought Library). </h3>
 
-<h2> CSS Transistions and Animations </h2>
+<h2> CSS Animations </h2>
 	<p> </p>
-<table class = "example"> Transitions
+<table class = "example"> Animation
 	<tr>
 		<td class = "cell">Example HTML</td>
 		<td class = "cell">Example JavaScript</td>
@@ -24,46 +24,52 @@
 		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
 							&lt;html&gt;<br>
 							&lt;body&gt;<br>
-							&lt;p&gt; &lt;/p&gt;<br><br>
-							&lt;p id="transition-execute"&gt;&lt;/p&gt;<br>
+							<p><span style="white-space:pre;">&nbsp;&nbsp;</span>
+							&lt;div class="jump"&gt;&lt;div class="container"&gt;</p>
+							<p>&nbsp; &lt;div class="head"&gt;&lt;/div&gt;</p>
+							<p>&nbsp; &lt;div class="shoulder"&gt;&lt;/div&gt;</p>
+							<p>&nbsp; &lt;div class="hand"&gt;&lt;/div&gt;</p>
+							<p>&nbsp; &lt;div class="hand right"&gt;&lt;/div&gt;</p>
+							<p>&nbsp; &lt;div class="bod"&gt;Click Me!&lt;/div&gt;</p>
+							<p>&nbsp; &lt;div class="leg"&gt;&lt;/div&gt;</p>
+							<p>&nbsp; &lt;div class="leg right"&gt;&lt;/div&gt;</p>
+							<p>&lt;/div&gt;&lt;/div&gt;</p>
 						</td>
 		<td class = "cell" ><pre  id = "transition-code">
+<code>snagged the body from 
+https://github.com/sashatran/css-stick-figure</code>
+div.jump {
+  margin: 100px;
+  width: 100px;
+  height: 200px;
+  background: red;
+  position: relative;
+ 
+}
 
+.jump:active{
+ animation: jump .5s 1;
+  animation-direction: alternate;
+}
+
+@keyframes jump {
+  0%   {background: red; left: 0px; top: 0px;}
+  100%  {background: darkred; left: 0px; top: -300px;}
 
 						</pre></td>
 		<td class = "cell">
-			<button onclick="fade()" id="transition">Execute</button>
-			<button onclick="reset()" id="transition">Reset</button>
+			<div class="jump"><div class="container">
+  <div class="head"></div>
+  <div class="shoulder"></div>
+  <div class="hand"></div>
+  <div class="hand right"></div>
+  <div class="bod">Click Me!</div>
+  <div class="leg"></div>
+  <div class="leg right"></div>
+</div></div>
 
-			<p id = "transition-execute"> Something Something Dark Side</p></td></tr></table>
-<table class = "example"> JSON Stringify
-	<tr>
-		<td class = "cell">Example HTML</td>
-		<td class = "cell">Example JavaScript</td>
-		<td class = "cell">Output</td>
-	</tr>
-	<tr>
-		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
-							&lt;html&gt;<br>
-							&lt;body&gt;<br>
-							&lt;p&gt; &lt;/p&gt;<br><br>
-							&lt;p id="animation-execute"&gt;&lt;/p&gt;<br>
-						</td>
-		<td class = "cell"><pre id = "animation-code">
-function stop(){
-  const animation = document.getElementById("animation-execute");
-  animation.style.animationPlayState = "paused";
-}
-function start(){
-  const animation = document.getElementById("animation-execute");
-  animation.style.animationPlayState = "initial";
-}
-						</pre></td>
-		<td class = "cell">
-			<button onclick="start()" id="animation">Start</button>
-			<button onclick="stop()" id="animation">Stop</button>
-			<div class = "scroll">
-			<p id = "animation-execute"> Something Something Dark Side</p></div></td></tr></table>
+			</td></tr></table>
+
 <script src="main.js"></script>
   	</body>
 </html>

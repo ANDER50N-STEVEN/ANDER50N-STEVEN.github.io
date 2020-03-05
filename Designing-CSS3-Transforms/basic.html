@@ -2,11 +2,116 @@
 <!DOCTYPE html>
 <html xmlns = "http://www.w3.org/1999/xhtml">
   <head> <title> Basic JavaScript </title>
+     	<title>CIT261 - Proficiency - Week13</title>
     <base "href = http://localhost/~stevoanderson/" />
+     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 
   </head>
   <body>
+  	  	  	<a href="../index.html">Index</a>
 
+<h1>CIT261 - Proficiency - Week13</h1>
+<h3>Demonstrate fluency in Designing, Defining, and Triggering CSS3 Transforms without Custom Libraries (Thought Library). 
+</h3>
 
+<h2> Transform </h2>
+	<p> </p>
+	<table class = "example"> Skew
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example CSS</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							<p>&lt;div class="art"&gt;</p>
+<p><span style="white-space:pre;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span>
+&lt;span class="word"&gt;ITS LIKE THE 90s!!!&lt;/span&gt;</p>
+<p><span style="white-space:pre;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span>&lt;/div&gt;</p>
+						</td>
+		<td class = "cell"><pre id = "over-code">
+.art{
+   width: 300px;
+  height: 80px;
+  margin-top: 35px;
+  -ms-transform: skewY(200deg); /* IE 9 */
+  transform: skewY(1600deg);  
+}
+
+.word{
+  font-size: 2rem;
+  margin: auto;
+  text-align: center;
+  color: yellow;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+						</pre></td>
+		<td class = "cell">
+			<div class="art">
+				<span class="word">ITS LIKE THE 90s!!!</span>
+			</div>
+			</td></tr></table>
+<table class = "example"> Rotate with Slider
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example CSS</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell"><p>&lt;div class="rot"&gt;</p>
+<p><span style="white-space:pre;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span>
+&lt;input type="range" min="1" max="360" value = "1" class="slider" id="myRange"&gt;&lt;/div&gt;</p>
+<p>&nbsp; &lt;div id="manipulate"&gt;Spin me!&lt;/div&gt;</p>
+						</td>
+		<td class = "cell" ><pre  id = "onClick-code">
+.slider  {
+  -webkit-appearance: none;
+  width: 80%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: blue;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+div#manipulate{
+  padding: 20px;
+  margin: auto;
+   width: 150px;
+  height: 80px;
+  background-color: yellow;
+  transform: rotate(0deg);
+}
+						</pre></td>
+		<td class = "cell"><div class="rot">
+			<input type="range" min="1" max="360" value = "1" class="slider" id="myRange"></div>
+  <div id="manipulate">Spin me by Sliding the bar!</div></td></tr></table>
+
+<script src="main.js"></script>
   	</body>
 </html>
