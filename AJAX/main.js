@@ -27,7 +27,7 @@ function executeCode(topic) {
 function loadWeather(city) {
   const xhttp = new XMLHttpRequest();
   const uri = encodeURI(
-    "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=468d285f51f1746352526f9b57d363d2&units=imperial"
+    "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=468d285f51f1746352526f9b57d363d2&units=imperial"
   );
 
   xhttp.onreadystatechange = function() {
