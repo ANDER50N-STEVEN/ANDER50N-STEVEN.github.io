@@ -25,12 +25,12 @@ function executeCode(topic) {
 //Do I need to adjust the API ID for github?
 
 function loadWeather(city) {
-  const xhttp = new XMLHttpRequest();
+  const xhttps = new XMLHttpRequest();
   const uri = encodeURI(
     "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=468d285f51f1746352526f9b57d363d2&units=imperial"
   );
 
-  xhttp.onreadystatechange = function() {
+  xhttps.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       const container = document.getElementById("execute");
       const response = JSON.parse(this.responseText);
@@ -43,15 +43,15 @@ function loadWeather(city) {
       container.innerHTML = buffer;
     }
   };
-  xhttp.open("GET", uri, true);
-  xhttp.send();
+  xhttps.open("GET", uri, true);
+  xhttps.send();
 }
 
 function getWeather(city){
   var temp = '';
   var x =document.getElementsByName("temp");
   var y;
-  const xhttp = new XMLHttpRequest();
+  const xhttps = new XMLHttpRequest();
   for(var i = 0; i < x.length; i++){
     if(x[i].checked){
       y = x[i].value;
@@ -60,9 +60,9 @@ function getWeather(city){
     temp = "&units=imperial";
   }
 }
-  const uri = encodeURI("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=468d285f51f1746352526f9b57d363d2" + temp);
+  const uri = encodeURI("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=468d285f51f1746352526f9b57d363d2" + temp);
 
-  xhttp.onreadystatechange = function() {
+  xhttps.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       const container = document.getElementById("objoutput");
       const response = JSON.parse(this.responseText);
@@ -90,6 +90,6 @@ function getWeather(city){
       container.innerHTML = buffer;
     }
   };
-  xhttp.open("GET", uri, true);
-  xhttp.send();
+  xhttps.open("GET", uri, true);
+  xhttps.send();
 }
