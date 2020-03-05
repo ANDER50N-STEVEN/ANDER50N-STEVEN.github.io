@@ -2,11 +2,121 @@
 <!DOCTYPE html>
 <html xmlns = "http://www.w3.org/1999/xhtml">
   <head> <title> Basic JavaScript </title>
+     	<title>CIT261 - Proficiency - Week10</title>
     <base "href = http://localhost/~stevoanderson/" />
+     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 
   </head>
   <body>
+  	  	  	<a href="../index.html">Index</a>
 
+<h1>CIT261 - Proficiency - Week11</h1>
+<h3>Purpose: Demonstrate fluency in Designing, Defining, and Triggering CSS3 Transitions without Custom Libraries (Thought Library). 
+</h3>
 
-  	</body>
-</html>
+<h2> Transitions without Library </h2>
+	<p>Transitions focus primarily on smooth and gradual changes to an element property </p>
+<table class = "example"> Hover
+	<tr>
+		<td class = "cell">Example HTML</td>
+		<td class = "cell">Example CSS</td>
+		<td class = "cell">Output</td>
+	</tr>
+	<tr>
+		<td class = "cell">&lt;!DOCTYPE html&gt;<br>
+							&lt;html&gt;<br>
+							&lt;body&gt;<br>
+							<p>&lt;label class="check"&gt;</p>
+<p>&nbsp; &nbsp; &lt;input type="checkbox" name="new"&gt;Hello</p>
+<p>&nbsp; &nbsp; &lt;span class="checkmark"&gt;&lt;/span&gt;</p>
+<p>&lt;/label&gt;&lt;br&gt;&lt;br&gt;</p>
+<p>&lt;label class="check"&gt;</p>
+<p>&nbsp; &nbsp; &lt;input type="checkbox" name="new"&gt;This</p>
+<p>&nbsp; &nbsp; &lt;span class="checkmark"&gt;&lt;/span&gt;</p>
+<p>&lt;/label&gt;&lt;br&gt;&lt;br&gt;</p>
+<p>&lt;label class="check"&gt;</p>
+<p>&nbsp; &nbsp;&lt;input type="checkbox" name="new"&gt;Is</p>
+<p>&nbsp; &nbsp;&lt;span class="checkmark"&gt;&lt;/span&gt;</p>
+<p>&lt;/label&gt;&lt;br&gt;&lt;br&gt;</p>
+<p>&lt;label class="check"&gt;</p>
+<p>&nbsp; &nbsp;&lt;input type="checkbox" name="new"&gt;New</p>
+<p>&nbsp; &nbsp;&lt;span class="checkmark"&gt;&lt;/span&gt;</p>
+<p>&lt;/label&gt;&lt;br&gt;&lt;br&gt;</p>
+						</td>
+		<td class = "cell" ><pre  id = "onClick-code">
+		<code>/*container for custom checkbox*/</code>
+.check {
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+		<code>/*remove default checkbox*/</code>
+.check input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  transition-duration: 1s;
+}
+		<code>/*new box*/</code>
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+		<code>/*slowly check box*/</code>
+.check:hover input ~ .checkmark {
+  background-color: #ccc;
+  transition-duration: 2s;
+}
+
+.check input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+		<code>/*display checkmark when checked*/</code>
+.check input:checked ~ .checkmark:after {
+    content: "";
+  position: absolute;
+}
+		<code>/*draw check*/</code>
+.check .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+						</pre></td>
+		<td class = "cell">
+			<label class="check">
+  <input type="checkbox" name="new">Hello
+  <span class="checkmark"></span>
+</label><br><br>
+<label class="check">
+  <input type="checkbox" name="new">This
+  <span class="checkmark"></span>
+</label><br><br>
+<label class="check">
+  <input type="checkbox" name="new">Is
+  <span class="checkmark"></span>
+</label><br><br>
+<label class="check">
+  <input type="checkbox" name="new">New
+  <span class="checkmark"></span>
+</label><br><br>
+			</td></tr></table>
