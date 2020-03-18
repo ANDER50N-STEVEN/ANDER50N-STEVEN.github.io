@@ -1,0 +1,74 @@
+{
+    {
+      "name": "The Lord of the Rings",
+      "author": "JRR Tolkien",
+      "price": "11.87",
+      "img": "http://ecx.images-amazon.com/images/I/51Nq%2Bl67AEL._AA160_.jpg",
+      "id": "LotR",
+      "genres": "Fantasy",
+      "rating": "4.5"
+    },
+    {
+      "name": "The Eye of the World",
+      "author": "Robert Jordan",
+      "price": "7.99",
+      "img": "http://ecx.images-amazon.com/images/I/5164%2Bq5eGfL._AA160_.jpg",
+      "id": "EoTW",
+      "genres": "Fantasy",
+      "rating": "4.19"
+    },
+    {
+      "name": "The Way of Kings",
+      "author": "Brandon Sanderson",
+      "price": "8.99",
+      "img": "http://ecx.images-amazon.com/images/I/51bjoG8C%2B4L._AA160_.jpg",
+      "id": "WoK",
+      "genres": "Fantasy",
+      "rating": "4.65"
+    },
+    {
+      "name": "The Crown Tower",
+      "author": "Michael J Sullivan",
+      "price": "8.89",
+      "img": "http://ecx.images-amazon.com/images/I/51jIQA2jq9L._AA160_.jpg",
+      "id": "tCT",
+      "genres": "Fantasy",
+      "rating": "4.33"
+    },
+    {
+      "name": "Belgarath the Sorcerer",
+      "author": "David Eddings and Leigh Eddings",
+      "price": "7.99",
+      "img": "http://ecx.images-amazon.com/images/I/51BmlSQXY5L._AA160_.jpg",
+      "id": "BtS",
+      "genres": "Fantasy",
+      "rating": "4.08"
+    },
+    {
+      "name": "The Name of the Wind",
+      "author": "Patrick Rothfuss",
+      "price": "7.99",
+      "img": "http://ecx.images-amazon.com/images/I/51HGCx5Rh6L._AA160_.jpg",
+      "id": "NotW",
+      "genres": "Fantasy",
+      "rating": "4.54"
+    },
+    {
+      "name": "Wizards First Rule",
+      "author": "Terry Goodkind",
+      "price": "6.91",
+      "img": "http://ecx.images-amazon.com/images/I/51rBfVFsqYL._AA160_.jpg",
+      "id": "WFR",
+      "genres": "Fantasy, Romance",
+      "rating": "4.13"
+    },
+    {
+      "name": "Gardens of the Moon",
+      "author": "Steven Erickson",
+      "price": "5.44",
+      "img": "http://ecx.images-amazon.com/images/I/51f1-OdVfuL._AA160_.jpg",
+      "id": "GotM",
+      "genres": "Fantasy",
+      "rating": "3.88"
+    }
+}

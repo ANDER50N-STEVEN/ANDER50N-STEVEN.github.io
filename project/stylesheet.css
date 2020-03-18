@@ -1,0 +1,159 @@
+html, body{
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+ }
+
+hr{
+    width: 75%;}
+
+
+table, tr, th{
+    text-align: center;
+    border: none;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;}
+
+
+.headerBar {
+    height: 60px;
+    background: #999999;
+    position: absolute;
+    width: 100%;
+    z-index: -1
+}
+
+/*.footerBar {
+    height: 40px;
+    background: black;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+}*/
+
+h1.brand{
+    margin-left: 2%;
+    float: left;
+    font-size: 150%;
+    width: 100%;
+}
+
+p.slogan{
+    float: left;
+    margin-left: 3%;
+    font-size: 10px;
+    margin-top: -20px;}
+
+div.welcome{
+    font-size: 150%;
+}
+
+div.cart{
+    right: 0;
+    position: fixed;
+    margin-top: -40px;
+    float: right;
+    margin-right: 10%;
+    width: 50px;
+    height: 50px;
+}
+
+a.fantasy{
+    font-family: lato,sans-serif;
+    font-weight: bolder;}
+a.scifi{
+    font-family: lato,sans-serif;
+    font-weight: bolder;}
+a.fiction{
+    font-family: lato,sans-serif;
+    font-weight: bolder;}
+a.romance{
+    font-family: lato,sans-serif;
+    font-weight: bolder;}
+a.ya{
+    font-family: lato,sans-serif;
+    font-weight: bolder;}
+
+input[type ="text"] {
+    background-color: lightgrey;
+    -webkit-transition: width 2s ease-in-out;
+    transition: width 2s ease-in-out;}
+
+input[type ="password"]{
+    background-color: lightgrey;
+    width:200px;
+    }
+
+a.submit{
+    display: inline-block;
+    background-color: blue;
+    color: white;
+    border: none;
+    font-style: normal;
+    padding: 15px 30px;
+    font-weight: bold;
+    font-size: 150%;
+}
+
+
+input.search{
+    float: right;
+    margin-right: 15%;
+    margin-top: -30px;
+
+}
+
+input.search:focus{
+    
+    width: 25%;
+    transition-duration: 2s;
+}
+
+div.name{
+   text-align:center;
+}
+
+table.contents{
+    width: 150px;
+    font-size: 1.3em;
+    left: 0;
+    margin-left: 5%;
+    position: fixed;
+    margin-top: -40px;
+}
+
+hr.archive{
+    width: 75%}
+
+a:link{
+    color: black;
+    text-decoration: none;}
+a:visited{
+        color: black;}
+
+h3{
+    text-align:left;
+}
+
+table.footer{
+ 
+    bottom: 40px;
+    left: 25%;
+}
+
+div.footer{
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    color: white;
+    z-index: +1;
+}
+
+#checkout{
+    width: 450px;
+    margin: auto;
+    background-color:#003366;
+    padding: 50px;
+}
