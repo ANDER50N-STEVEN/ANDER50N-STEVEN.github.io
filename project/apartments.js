@@ -1,4 +1,4 @@
-{
+eqfeed_callback({
   "apartment": [
     {
       "name": "Modera Pearl",
@@ -57,4 +57,4 @@
       "price": 1695
     }
   ]
-}
+})
