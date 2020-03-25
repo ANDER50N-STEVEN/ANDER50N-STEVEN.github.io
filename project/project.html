@@ -4,10 +4,64 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="main.css">
+
+    <!-- Adjusted from https://stackoverflow.com/questions/22043536/the-price-bar-with-max-and-min-prices -->
+    <link rel="stylesheet" type="text/css" href="slider.css">  	
     <title>Rental Place</title>
   </head>
-  <body>
-  	  <h1 id = "top" class = "brand"><a > <em>Rental Place</em></a></h1><br />
+  <body onload="filter('all','bed'), filter('all', 'bath')">
+  	  
+  	<h1 id = "top" class = "brand"><a > <em>Rental Place</em></a></h1><br />
+  	 <div id="priceBtn">
+  		<span id="desc">Price: </span>
+  			<div slider id="slider-distance">
+  				<div>
+    				<div inverse-left style="width:70%;"></div>
+    				<div inverse-right style="width:70%;"></div>
+    				<div range style="left:0%;right:0%;"></div>
+				    <span thumb style="left:0%;"></span>
+				    <span thumb style="left:100%;"></span>
+				    <div sign style="left:0%;">
+				      <span id="value">0</span>
+				    </div>
+				    <div sign style="left:100%;">
+				      <span id="value">5000</span>
+				    </div>
+  				</div>
+			  <input type="range" value="0" max="5000" min="0" step="100" oninput="
+			  this.value=Math.min(this.value,this.parentNode.childNodes[5].value-1);
+			  let value = (this.value/parseInt(this.max))*100
+			  var children = this.parentNode.childNodes[1].childNodes;
+			  children[1].style.width=value+'%';
+			  children[5].style.left=value+'%';
+			  children[7].style.left=value+'%';children[11].style.left=value+'%';
+			  children[11].childNodes[1].innerHTML=this.value;" />
+
+			  <input type="range" value="10000" max="5000" min="0" step="100" oninput="
+			  this.value=Math.max(this.value,this.parentNode.childNodes[3].value-(-1));
+			  let value = (this.value/parseInt(this.max))*100
+			  var children = this.parentNode.childNodes[1].childNodes;
+			  children[3].style.width=(100-value)+'%';
+			  children[5].style.right=(100-value)+'%';
+			  children[9].style.left=value+'%';children[13].style.left=value+'%';
+			  children[13].childNodes[1].innerHTML=this.value;" />
+			</div></div>
+  		
+<table>
+  	<tr id="bedBtn">
+  		<th id="desc">Beds:</th>
+  	  	<th><button class="btn active" onclick="filter('all', 'bed')"> Any</button></th>
+		<th><button class="btn" id="1bed" onclick="filter(0, 'bed')"> Studio</button></th>
+		<th><button class="btn" id="2bed" onclick="filter(1,'bed')"> 1</button></th>
+  		<th><button class="btn" id="3bed" onclick="filter(2,'bed')"> 2</button></th>
+  		<th><button class="btn"	id="4bed" onclick="filter(3,'bed')"> 3+</button></th></tr>
+  	<tr id="bathBtn">
+  		<th id="desc">Baths:</th>
+  		<th><button class="btn active" id="any" onclick="filter('all','bath')"> Any</button></th>
+		<th><button class="btn" id="1bath" onclick="filter(1,'bath')"> 1</button></th>
+  		<th><button class="btn" id="2bath" onclick="filter(2,'bath')"> 2</button></th>
+  		<th><button class="btn"	id="3bath" onclick="filter(3,'bath')"> 3+</button></th></tr></table>
+
     <div id="map"></div>
 
     <script src="main.js"></script>
