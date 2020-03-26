@@ -70,43 +70,50 @@ if(bounds.Za[0] == bounds.Za[1])
 
     // Filter depending on user input.
       
-function filter(c, filter) {
-  var header = document.getElementById(filter+"Btn");
-  var x = header.getElementsByClassName("btn");
+function filter(c, filter, isButton) {
+  if(isButton){
+    var header = document.getElementById(filter+"Btn");
+    var x = header.getElementsByClassName("btn");
 
-  // To cycle through buttons when clicked, first button pressed only if onload.
+    // To cycle through buttons when clicked, first button pressed only if onload.
 
-  for (var i = 0; i < x.length; i++) {
-    x[i].addEventListener("click", function() {
-      var current = header.getElementsByClassName("active");
-      current[0].className = current[0].className.replace(" active", "");
-      localStorage.setItem('previous', current);
-      if(!isEmpty(set)){
-      this.className += " active";
-      }
-      else
-       x[0].className += " active";
-    });
+    for (var i = 0; i < x.length; i++) {
+      x[i].addEventListener("click", function() {
+        var current = header.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        localStorage.setItem('previous', current);
+        if(!isEmpty(set)){
+        this.className += " active";
+        }
+        else
+         x[0].className += " active";
+      });
 
+    }
   }
     //  Calls filter functions
 set = JSON.parse(localStorage.getItem('data'));
+localStorage.setItem(filter, c);
   switch(filter){
     case "bed":
-
-      localStorage.setItem('rooms', c);
       filterBed(c);
-      if(localStorage.getItem('bath') != null && set != null)
-        filterBath(localStorage.getItem('bath'));
+      if(set != null)
+        storedFilter();
       break;
     case "bath":
-      localStorage.setItem('bath', c);
       filterBath(c);
-      if(localStorage.getItem('rooms') != null && set != null)
-        filterBed(localStorage.getItem('rooms'));
+      if(set != null)
+        storedFilter();
       break;
-    case "price":
-      filterPrice(document.getElementById('minPrice').value, document.getElementById('maxPrice').value);
+    case "minPrice":
+      filterPrice(c, false);
+      if(set != null)
+        storedFilter();
+      break;
+    case "maxPrice":
+      filterPrice(c, true);
+      if(set != null)
+        storedFilter();
       break;
     case "feet":
       filterFeet(c);
@@ -130,6 +137,18 @@ set = JSON.parse(localStorage.getItem('data'));
 
 }
 
+
+function storedFilter(){
+  if(localStorage.getItem('bath') != null)
+    filterBath(localStorage.getItem('bath'));
+  if(localStorage.getItem('bed') != null)
+    filterBed(localStorage.getItem('bed'));
+  if(localStorage.getItem('minPrice') != null)
+    filterPrice(localStorage.getItem('minPrice'), false);
+  if(localStorage.getItem('maxPrice') != null)
+    filterPrice(localStorage.getItem('maxPrice'), true);
+}
+
 function filterBed(beds){
   if (beds == "all"){ 
     localStorage.removeItem('rooms');
@@ -144,7 +163,7 @@ function filterBed(beds){
       }
     }
   }
-console.log(JSON.parse(localStorage.getItem('data')));
+//console.log(JSON.parse(localStorage.getItem('data')));
 }
 
 function filterBath(baths){
@@ -162,18 +181,25 @@ if (baths == "all"){
     console.log(set);
 }
 
-function filterPrice(min, max){ 
-  if(min == "")
-    min = 0;
-  if(max == "")
-    max =1000000000;
-  for (var i = 0; i < set.length; i++) {
-    for(var j = 0; j < set[i].price.length; j++){
-    if(set[i].price[j] < min || set[i].price[j] > max){
-      set.splice(i,1);
-      // i--;
-    }}
+function filterPrice(price, isMax){ 
+  if(isMax){
+    for (var i = 0; i < set.length; i++) {
+      if(set[i].price[0] > price){
+        set.splice(i, 1);
+        i--;
+      }
+    }
   }
+  else{
+    for (var i = 0; i < set.length; i++) {
+      if(set[i].price[set[i].price.length - 1] < price){
+        set.splice(i, 1);
+        i--;
+      }
+    }
+  }
+
+console.log(set);
   
 }
 
