@@ -14,16 +14,14 @@ function initMap() {
 
 }
 
-
+function displayAve() {
     // Creating the XMLHttpRequest object
     var output = document.getElementById('average');
     var request = new XMLHttpRequest();
     var url = "./csvjson.json";
     var city = "Portland";
 
-    // Instantiating the request object
-    request.open("GET", url, true);
-
+  
     // Defining event listener for readystatechange event
     request.readystatechange = function() {
         // Check if the request is compete and was successful
@@ -38,10 +36,12 @@ function initMap() {
         }
         console.log(response);
     };
+  // Instantiating the request object
+    request.open("GET", url, true);
 
     // Sending the request to the server
     request.send();
-
+}
 
       // Loop through the results array and place a marker for each
       // set of coordinates.
