@@ -36,7 +36,7 @@ function displayAve() {
             var response =  "The Average Cost for Apartments to live in " + city + " is: $" + current.Zri;
             output.innerHTML = response;
         }
-        console.log( "The Average Cost for Apartments to live in " + city + " is: $" + current.Zri)
+        console.log(response);
     };
 
     // Sending the request to the server
