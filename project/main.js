@@ -16,14 +16,14 @@ function initMap() {
 
 function displayAve() {
     // Creating the XMLHttpRequest object
-    var output = document.getElementById('average');
-    var request = new XMLHttpRequest();
-    var url = "./csvjson.json";
+    const output = document.getElementById('average');
+    const request = new XMLHttpRequest();
+    const url = "./csvjson.json";
     var city = "Portland";
 
   
     // Defining event listener for readystatechange event
-    request.readystatechange = function() {
+    request.onreadystatechange = function() {
         // Check if the request is compete and was successful
         if(this.readyState === 4 && this.status === 200) {
             
