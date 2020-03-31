@@ -14,11 +14,41 @@ function initMap() {
 
 }
 
+function displayAve() {
+    // Creating the XMLHttpRequest object
+    var output = document.getElementById('average');
+    var request = new XMLHttpRequest();
+    var url = "./csvjson.json";
+    var city = "Portland";
+
+    // Instantiating the request object
+    request.open("GET", url, true);
+
+    // Defining event listener for readystatechange event
+    request.readystatechange = function() {
+        // Check if the request is compete and was successful
+        if(this.readyState === 4 && this.status === 200) {
+            
+            var average = JSON.parse(request.responseText);
+            var current = average.filter(obj => {
+              return obj.RegionName === city
+            })
+            var response =  "The Average Cost for Apartments to live in " + city + " is: $" + current.Zri;
+            output.innerHTML = response;
+        }
+        console.log( "The Average Cost for Apartments to live in " + city + " is: $" + current.Zri)
+    };
+
+    // Sending the request to the server
+    request.send();
+}
+
       // Loop through the results array and place a marker for each
       // set of coordinates.
 
 function eqfeed_callback(results) {
   var bounds = new google.maps.LatLngBounds();
+  var name;
   if(set === null){
     set = results.apartment;
     localStorage.setItem('data', JSON.stringify(set));
@@ -33,12 +63,17 @@ function eqfeed_callback(results) {
       });
     bounds.extend(marker.position);
 
-    
+    if(rental.name === ""){
+      name = rental.address.num;
+    }
+    else{
+      name = rental.name;
+    }
 
         //  Info window Content
 
     var content = '<div id="content">'+
-      '<h1 id="firstHeading" class="firstHeading">'+ rental.name + '</h1>'+
+      '<h1 id="firstHeading" class="firstHeading">'+ name + '</h1>'+
       '<div id="bodyContent">'+
       '<div><img src="' + rental.img[0] + '" width="100px" height="70px">' +
       '<div> Beds: ' + print(rental.style.bed, ' ') + '</div>'+
@@ -65,7 +100,7 @@ function eqfeed_callback(results) {
 map.fitBounds(bounds);
 console.log(bounds);
 if(bounds.Za[0] == bounds.Za[1])
- map.setZoom(map.getZoom()-2);
+ map.setZoom(map.getZoom());
 }
 
     // Filter depending on user input.
@@ -133,7 +168,7 @@ localStorage.setItem(filter, c);
       }
       localStorage.clear();
   }
-   initMap()
+
 
 }
 

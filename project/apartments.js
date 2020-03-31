@@ -2,7 +2,12 @@ eqfeed_callback({
   "apartment": [
     {
       "name": "Modera Pearl",
-      "address": "1481 NW 13th Ave, Portland, OR 97209",
+      "address": {
+        "num":"1481 NW 13th Ave",
+        "city": "Portland",
+        "state": "OR",
+        "zip": 97209
+      },
       "location": {
         "lat": 45.533249,
         "lon": -122.685043
@@ -17,7 +22,12 @@ eqfeed_callback({
     },
     {
       "name": "Heartline Apartments",
-        "address": "1250 NW Kearney St, Portland, OR 97209",
+        "address": {
+        "num":"1250 NW Kearney St",
+        "city": "Portland",
+        "state": "OR",
+        "zip": 97209
+      },
       "location": {
         "lat": 45.529160,
         "lon": -122.694527
@@ -32,7 +42,12 @@ eqfeed_callback({
     },
     {
       "name": "Tanner Flats",
-        "address": "2004 SW Jefferson St, Portland, OR 97201",
+        "address": {
+        "num":"2004 SW Jefferson St",
+        "city": "Portland",
+        "state": "OR",
+        "zip": 97209
+      },
       "location": {
         "lat": 45.518520,
         "lon": -122.694618
@@ -47,7 +62,12 @@ eqfeed_callback({
     },
     {
       "name": "",
-      "address": "1400 NW Irving St, Portland, OR 97209",
+      "address": {
+        "num":"1400 NW Irving St",
+        "city": "Portland",
+        "state": "OR",
+        "zip": 97209
+      },
      "location": {
         "lat": 45.527470,
         "lon": -122.685800
@@ -62,7 +82,12 @@ eqfeed_callback({
     },
 {
       "name": "Yard Luxary Apartments",
-      "address": "22 NE 2nd Ave, Portland, OR 97232",
+      "address": {
+        "num":"22 NE 2nd Ave",
+        "city": "Portland",
+        "state": "OR",
+        "zip": 97209
+      },
      "location": {
         "lat": 45.532230,
         "lon": -122.663689
@@ -77,7 +102,12 @@ eqfeed_callback({
     },
     {
       "name": "Cordelia",
-      "address": "777 NW 19th Ave, Portland, OR 97209",
+      "address": {
+        "num":"777 NW 19th Ave",
+        "city": "Portland",
+        "state": "OR",
+        "zip": 97209
+      },
      "location": {
         "lat": 45.528278,
         "lon": -122.690948
@@ -89,6 +119,66 @@ eqfeed_callback({
       },
       "price": [1451, 2585],
       "img": ["./img/Cordelia/kit.jpg", "./img/Cordelia/live.jpg"]
+    },
+    {
+      "name": "Twin Oaks",
+      "address": {
+        "num":"6920 SW 92ND Ave",
+        "city": "Portland",
+        "state": "OR",
+        "zip": 97209
+      },
+     "location": {
+        "lat": 45.523440,
+        "lon": -122.698210
+      },
+      "style": {
+        "bed": [2],
+        "bath": [2],
+        "feet": [1105]
+      },
+      "price": [1525],
+      "img": ["./img/Twin Oaks/out.jpg", "./img/Twin Oaks/live.jpg"]
+    },
+    {
+      "name": "",
+      "address": {
+        "num":"3852 Botticelli St Unit 1",
+        "city": "Portland",
+        "state": "OR",
+        "zip": 97209
+      },
+     "location": {
+        "lat": 45.426010,
+        "lon": -122.715630
+      },
+      "style": {
+        "bed": [3],
+        "bath": [2],
+        "feet": [1224]
+      },
+      "price": [2100],
+      "img": ["./img/3852 Bott/out.jpg", "./img/3852 Bott/live.jpg"]
+    },
+    {
+      "name": "",
+      "address": {
+        "num":"710 SW Skyline Blvd",
+        "city": "Portland",
+        "state": "OR",
+        "zip": 97209
+      },
+     "location": {
+        "lat": 45.518300,
+        "lon": -122.731040
+      },
+      "style": {
+        "bed": [3],
+        "bath": [2],
+        "feet": [1752]
+      },
+      "price": [2495],
+      "img": ["./img/710 Sky/out.jpg", "./img/710 Sky/live.jpg", "./img/710 Sky/kit.jpg"]
     }
   ]
 })
