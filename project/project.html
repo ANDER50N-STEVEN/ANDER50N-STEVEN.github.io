@@ -12,24 +12,24 @@
   <body onload="filter('all','bed'), filter('all', 'bath'), displayAve()">
   	  
   	<h1 id = "top" class = "brand"><a > <em>Rental Place</em></a></h1><br />
-  	<span id="output" ></span>
+  	<span id="average" ></span>
   	 <div id="priceBtn">
   		<span id="desc">Price: </span>
   			<div slider id="slider-distance">
   				<div>
-    				<div inverse-left style="width:70%;"></div>
-    				<div inverse-right style="width:70%;"></div>
-    				<div range style="left:0%;right:0%;"></div>
-				    <span thumb style="left:0%;"></span>
-				    <span thumb style="left:100%;"></span>
-				    <div sign style="left:0%;">
-				      <span id="value">0</span>
+    				<div inverse-left id="il" style="width:70%;"></div>
+    				<div inverse-right id="ir" style="width:70%;"></div>
+    				<div range id="range" style="left:0%;right:0%;"></div>
+				    <span thumb id="thumbl" style="left:0%;"></span>
+				    <span thumb id="thumbr" style="left:100%;"></span>
+				    <div sign id="sleft" style="left:0%;">
+				      <span id="lvalue">0</span>
 				    </div>
-				    <div sign style="left:100%;">
-				      <span id="value">5000</span>
+				    <div sign id="sright" style="left:100%;">
+				      <span id="rvalue">5000</span>
 				    </div>
   				</div>
-			  <input type="range" value="0" max="5000" min="0" step="100" onchange="filter(this.value, 'minPrice', false)" oninput="
+			  <input type="range" value="0" max="5000" min="0" step="100" id="left" onchange="filter(this.value, 'minPrice', false)" oninput="
 			  this.value=Math.min(this.value,this.parentNode.childNodes[5].value-1);
 			  let value = (this.value/parseInt(this.max))*100
 			  var children = this.parentNode.childNodes[1].childNodes;
@@ -38,7 +38,7 @@
 			  children[7].style.left=value+'%';children[11].style.left=value+'%';
 			  children[11].childNodes[1].innerHTML=this.value;" />
 
-			  <input type="range" value="5000" max="5000" min="0" step="100" onchange="filter(this.value, 'maxPrice', false)" oninput="
+			  <input type="range" value="5000" max="5000" min="0" step="100" id="right" onchange="filter(this.value, 'maxPrice', false)" oninput="
 			  this.value=Math.max(this.value,this.parentNode.childNodes[3].value-(-1));
 			  let value = (this.value/parseInt(this.max))*100
 			  var children = this.parentNode.childNodes[1].childNodes;
@@ -51,14 +51,14 @@
 <table>
   	<tr id="bedBtn">
   		<th id="desc">Beds:</th>
-  	  	<th><button class="btn active" onclick="filter('all', 'bed', true)"> Any</button></th>
+  	  	<th><button class="btn active any" id="any" onclick="filter('all', 'bed', true)"> Any</button></th>
 		<th><button class="btn" id="1bed" onclick="filter(0, 'bed', true)"> Studio</button></th>
 		<th><button class="btn" id="2bed" onclick="filter(1,'bed', true)"> 1</button></th>
   		<th><button class="btn" id="3bed" onclick="filter(2,'bed', true)"> 2</button></th>
   		<th><button class="btn"	id="4bed" onclick="filter(3,'bed', true)"> 3+</button></th></tr>
   	<tr id="bathBtn">
   		<th id="desc">Baths:</th>
-  		<th><button class="btn active" id="any" onclick="filter('all','bath', true)"> Any</button></th>
+  		<th><button class="btn active any" id="any" onclick="filter('all','bath', true)"> Any</button></th>
 		<th><button class="btn" id="1bath" onclick="filter(1,'bath', true)"> 1</button></th>
   		<th><button class="btn" id="2bath" onclick="filter(2,'bath', true)"> 2</button></th>
   		<th><button class="btn"	id="3bath" onclick="filter(3,'bath', true)"> 3+</button></th></tr></table>

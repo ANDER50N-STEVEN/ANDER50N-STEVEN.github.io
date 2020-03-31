@@ -1,6 +1,5 @@
 var map;
 var set = null; 
-var active = false;
 function initMap() {
   
   map = new google.maps.Map(document.getElementById('map'), {
@@ -12,35 +11,6 @@ function initMap() {
     script.src = 'apartments.js';
     document.getElementsByTagName('head')[0].appendChild(script);
 
-}
-
-function displayAve() {
-    // Creating the XMLHttpRequest object
-    const output = document.getElementById('average');
-    const request = new XMLHttpRequest();
-    const url = "./csvjson.json";
-    var city = "Portland";
-
-  
-    // Defining event listener for readystatechange event
-    request.onreadystatechange = function() {
-        // Check if the request is compete and was successful
-        if(this.readyState === 4 && this.status === 200) {
-            
-            var average = JSON.parse(request.responseText);
-            var current = average.filter(obj => {
-              return obj.RegionName === city
-            })
-            var response =  "The Average Cost for Apartments to live in " + city + " is: $" + current.Zri;
-            output.innerHTML = response;
-        }
-        console.log(response);
-    };
-  // Instantiating the request object
-    request.open("GET", url, true);
-
-    // Sending the request to the server
-    request.send();
 }
 
       // Loop through the results array and place a marker for each
@@ -102,12 +72,99 @@ console.log(bounds);
 if(bounds.Za[0] == bounds.Za[1])
  map.setZoom(map.getZoom());
 }
+function displayAve() {
+    // Creating the XMLHttpRequest object
+    const output = document.getElementById('average');
+    const request = new XMLHttpRequest();
+    const url = "https://api.myjson.com/bins/jvfrw";
+    var city = "Portland";
+    var state = "OR"
 
+  
+    // Defining event listener for readystatechange event
+    request.onreadystatechange = function() {
+        // Check if the request is compete and was successful
+        if(this.readyState === 4 && this.status === 200) {
+            
+            var average = JSON.parse(request.responseText);
+            var current = average.filter(obj => {
+              return (obj.RegionName === city && obj.State === state)
+            })
+            var response =  "The Average Cost for Apartments to live in " + city + " area is: $" + current[0].Zri+ "/month";
+            console.log(current[0].RegionName);
+            output.innerHTML = response;
+        }
+        console.log(response);
+    };
+  // Instantiating the request object
+    request.open("GET", url, true);
+
+    // Sending the request to the server
+    request.send();
+}
     // Filter depending on user input.
       
 function filter(c, filter, isButton) {
   if(isButton){
-    var header = document.getElementById(filter+"Btn");
+    active(filter);
+    
+  }
+    //  Calls filter functions
+set = JSON.parse(localStorage.getItem('data'));
+localStorage.setItem(filter, c);
+  switch(filter){
+    case "bed":
+      if(set != null)
+        storedFilter();
+      break;
+    case "bath":
+      if(set != null)
+        storedFilter();
+      break;
+    case "minPrice":
+      if(set != null)
+        storedFilter();
+      break;
+    case "maxPrice":
+      if(set != null)
+        storedFilter();
+      break;
+    case "feet":
+      filterFeet(c);
+      break;
+    default:
+      break;
+  }
+
+  // initMap();
+  if(isEmpty(set)){
+    window.alert("We could not find any with this criteria search again");
+    set = null;
+    active('bed');
+    active('bath');
+
+      localStorage.clear();
+      // I don't know if there is an easier way to reset defaults of inline CSS
+      document.getElementById('left').value = 0;
+      document.getElementById('right').value = 5000;
+      document.getElementById('thumbl').style.left = "0%";
+      document.getElementById('thumbr').style.left = "100%";
+      document.getElementById('il').style.width = "0%";
+      document.getElementById('ir').style.width = "100%";
+      document.getElementById('range').style.left = "0%";
+      document.getElementById('range').style.right = "100%";
+      document.getElementById('sleft').style.left = "0%";
+      document.getElementById('sright').style.left = "100%";
+      document.getElementById('lvalue').innerHTML = 0;
+      document.getElementById('rvalue').innerHTML = 5000;
+
+  }
+   initMap();
+
+}
+
+function active(filter){
+  var header = document.getElementById(filter+"Btn");
     var x = header.getElementsByClassName("btn");
 
     // To cycle through buttons when clicked, first button pressed only if onload.
@@ -125,53 +182,7 @@ function filter(c, filter, isButton) {
       });
 
     }
-  }
-    //  Calls filter functions
-set = JSON.parse(localStorage.getItem('data'));
-localStorage.setItem(filter, c);
-  switch(filter){
-    case "bed":
-      filterBed(c);
-      if(set != null)
-        storedFilter();
-      break;
-    case "bath":
-      filterBath(c);
-      if(set != null)
-        storedFilter();
-      break;
-    case "minPrice":
-      filterPrice(c, false);
-      if(set != null)
-        storedFilter();
-      break;
-    case "maxPrice":
-      filterPrice(c, true);
-      if(set != null)
-        storedFilter();
-      break;
-    case "feet":
-      filterFeet(c);
-      break;
-    default:
-      break;
-  }
-
-  // initMap();
-  if(isEmpty(set)){
-    window.alert("We could not find any with this criteria search again");
-    set = null;
-    if(active){
-        var current = document.getElementsByClassName("active");
-        current[0].className = current[0].className.replace(" active", "");
-        active = false;
-      }
-      localStorage.clear();
-  }
-
-
 }
-
 
 function storedFilter(){
   if(localStorage.getItem('bath') != null)
@@ -186,7 +197,7 @@ function storedFilter(){
 
 function filterBed(beds){
   if (beds == "all"){ 
-    localStorage.removeItem('rooms');
+    localStorage.removeItem('bed');
     set =JSON.parse(localStorage.getItem('data'));
     return;}
   else{
