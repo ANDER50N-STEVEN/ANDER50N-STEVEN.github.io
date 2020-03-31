@@ -14,7 +14,7 @@ function initMap() {
 
 }
 
-function displayAve() {
+
     // Creating the XMLHttpRequest object
     var output = document.getElementById('average');
     var request = new XMLHttpRequest();
@@ -41,7 +41,7 @@ function displayAve() {
 
     // Sending the request to the server
     request.send();
-}
+
 
       // Loop through the results array and place a marker for each
       // set of coordinates.
