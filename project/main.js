@@ -19,9 +19,13 @@ function initMap() {
 function eqfeed_callback(results) {
   var bounds = new google.maps.LatLngBounds();
   var name;
+   while (document.getElementById("nav").firstChild) {
+   document.getElementById("nav").removeChild(document.getElementById("nav").firstChild);
   if(set === null){
     set = results.apartment;
     localStorage.setItem('data', JSON.stringify(set));
+   
+}
   }
   for (var i = 0; i < set.length; i++) {
     var rental = set[i];
@@ -52,6 +56,12 @@ function eqfeed_callback(results) {
       '</div>'    
 
     var infowindow = new google.maps.InfoWindow()
+
+    var sidebar = document.createElement("LI");
+    var textnode = document.createTextNode(name);
+    sidebar.appendChild(textnode);
+    document.getElementById("nav").appendChild(sidebar);
+    // var sidebar = '<li class= "sidebar" id="'+ name +'">' + name +'</li>';
 
       //  Mousover and out to display and remove info window
 
@@ -138,7 +148,18 @@ localStorage.setItem(filter, c);
 
   // initMap();
   if(isEmpty(set)){
-    window.alert("We could not find any with this criteria search again");
+    var modal = document.getElementById("myModal");
+    var span = document.getElementsByClassName("close")[0];
+    modal.style.display = "block";
+    span.onclick = function() {
+  modal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+    // window.alert("We could not find any with this criteria search again");
     set = null;
     active('bed');
     active('bath');

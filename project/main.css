@@ -1,3 +1,28 @@
+
+.sidebar-container {
+	height: 100%;
+	position: fixed;
+    padding: 0px;
+    top: 0;
+    right: 0;
+    margin-top: -50px;
+    padding-top: 50px;
+	border-left: 1px solid #ddd;
+	width: 500px;
+}
+
+.sidebar-header {
+	position: relative;
+	padding: 15px;
+	border-bottom: 1px solid #ddd;
+}
+
+.sidebar {
+    height: 85%;
+	position: relative;
+	overflow-y: scroll;
+}
+	
 #map {
         height: 70%;
         width: 60%;

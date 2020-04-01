@@ -4,13 +4,26 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="modal.css">
 
     <!-- Adjusted from https://stackoverflow.com/questions/22043536/the-price-bar-with-max-and-min-prices -->
     <link rel="stylesheet" type="text/css" href="slider.css">  	
     <title>Rental Place</title>
   </head>
   <body onload="filter('all','bed'), filter('all', 'bath'), displayAve()">
-  	  
+  	       
+        <div class="sidebar-container">
+            <div class="sidebar-header">
+               
+            </div>
+            <div class="sidebar">
+                <nav>
+                    <ul id="nav">
+                    <!--  -->
+                    </ul>
+                </nav>
+            </div>
+        </div>
   	<h1 id = "top" class = "brand"><a > <em>Rental Place</em></a></h1><br />
   	<span id="average" ></span>
   	 <div id="priceBtn">
@@ -47,7 +60,10 @@
 			  children[9].style.left=value+'%';children[13].style.left=value+'%';
 			  children[13].childNodes[1].innerHTML=this.value;" />
 			</div></div>
-  		
+  		<div id="sidebar">
+  			
+  		</div>
+
 <table>
   	<tr id="bedBtn">
   		<th id="desc">Beds:</th>
@@ -65,6 +81,21 @@
 
     <div id="map"></div>
 
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Invalid</h2>
+    </div>
+    <div class="modal-body">
+      <p>We could not find any with this criteria</p>
+      <p>Please search again</p>
+    </div>
+    <div class="modal-footer">
+    </div>
+  </div>
+</div>
     <script src="main.js"></script>
     <script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLLEb28ya7yyso5Sqw1ffEmaSX86c7LYY&callback=initMap"></script>
