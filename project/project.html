@@ -8,13 +8,14 @@
 
     <!-- Adjusted from https://stackoverflow.com/questions/22043536/the-price-bar-with-max-and-min-prices -->
     <link rel="stylesheet" type="text/css" href="slider.css">  	
-    <title>Rental Place</title>
+    <title >Rental Place</title>
   </head>
   <body onload="filter('all','bed'), filter('all', 'bath'), displayAve()">
   	       
         <div class="sidebar-container">
             <div class="sidebar-header">
-               
+               <h2 style="text-align: center;">Available Apartments</h2>
+               <span id="average" ></span>
             </div>
             <div class="sidebar">
                 <nav>
@@ -24,8 +25,8 @@
                 </nav>
             </div>
         </div>
-  	<h1 id = "top" class = "brand"><a > <em>Rental Place</em></a></h1><br />
-  	<span id="average" ></span>
+  	<h1 style="padding-left: 200px;"><a > <em>Rental Place</em></a></h1><br />
+  	
   	 <div id="priceBtn">
   		<span id="desc">Price: </span>
   			<div slider id="slider-distance">
@@ -60,24 +61,23 @@
 			  children[9].style.left=value+'%';children[13].style.left=value+'%';
 			  children[13].childNodes[1].innerHTML=this.value;" />
 			</div></div>
-  		<div id="sidebar">
-  			
-  		</div>
 
-<table>
-  	<tr id="bedBtn">
+<table id="bedBtn">
+  	<tr >
   		<th id="desc">Beds:</th>
   	  	<th><button class="btn active any" id="any" onclick="filter('all', 'bed', true)"> Any</button></th>
 		<th><button class="btn" id="1bed" onclick="filter(0, 'bed', true)"> Studio</button></th>
 		<th><button class="btn" id="2bed" onclick="filter(1,'bed', true)"> 1</button></th>
   		<th><button class="btn" id="3bed" onclick="filter(2,'bed', true)"> 2</button></th>
-  		<th><button class="btn"	id="4bed" onclick="filter(3,'bed', true)"> 3+</button></th></tr>
-  	<tr id="bathBtn">
+  		<th><button class="btn"	id="4bed" onclick="filter(3,'bed', true)"> 3+</button></th></tr></table>
+<table id="bathBtn">
+  	<tr >
   		<th id="desc">Baths:</th>
   		<th><button class="btn active any" id="any" onclick="filter('all','bath', true)"> Any</button></th>
 		<th><button class="btn" id="1bath" onclick="filter(1,'bath', true)"> 1</button></th>
   		<th><button class="btn" id="2bath" onclick="filter(2,'bath', true)"> 2</button></th>
   		<th><button class="btn"	id="3bath" onclick="filter(3,'bath', true)"> 3+</button></th></tr></table>
+  		<br><br><br>
 
     <div id="map"></div>
 

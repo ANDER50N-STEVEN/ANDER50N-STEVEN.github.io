@@ -1,7 +1,8 @@
 var map;
 var set = null; 
+
+//  Create Map
 function initMap() {
-  
   map = new google.maps.Map(document.getElementById('map'), {
       mapTypeId: 'terrain'
     });
@@ -19,14 +20,15 @@ function initMap() {
 function eqfeed_callback(results) {
   var bounds = new google.maps.LatLngBounds();
   var name;
-   while (document.getElementById("nav").firstChild) {
-   document.getElementById("nav").removeChild(document.getElementById("nav").firstChild);
+      //  clear sidebar content
+  while (document.getElementById("nav").firstChild)
+    document.getElementById("nav").removeChild(document.getElementById("nav").firstChild);  
+
   if(set === null){
     set = results.apartment;
     localStorage.setItem('data', JSON.stringify(set));
-   
-}
   }
+
   for (var i = 0; i < set.length; i++) {
     var rental = set[i];
     var coords = rental.location;
@@ -37,15 +39,13 @@ function eqfeed_callback(results) {
       });
     bounds.extend(marker.position);
 
-    if(rental.name === ""){
+      // if no title for property
+    if(rental.name === "")
       name = rental.address.num;
-    }
-    else{
+    else
       name = rental.name;
-    }
 
         //  Info window Content
-
     var content = '<div id="content">'+
       '<h1 id="firstHeading" class="firstHeading">'+ name + '</h1>'+
       '<div id="bodyContent">'+
@@ -57,11 +57,56 @@ function eqfeed_callback(results) {
 
     var infowindow = new google.maps.InfoWindow()
 
-    var sidebar = document.createElement("LI");
-    var textnode = document.createTextNode(name);
-    sidebar.appendChild(textnode);
-    document.getElementById("nav").appendChild(sidebar);
-    // var sidebar = '<li class= "sidebar" id="'+ name +'">' + name +'</li>';
+    //  Sidebar data and creation 
+    var listItem = document.createElement("LI");
+    var linebreak = document.createElement("br");
+    var image = document.createElement("IMG");
+    var header = document.createElement("H4");
+    var cost = document.createElement("P");
+    var rooms = document.createElement("P");
+    var hr = document.createElement("HR");
+
+    image.src = rental.img[0];
+    image.title = name;
+    image.id = "displayImg";
+
+    cost.id = "disp";
+    rooms.id = "disp";
+
+    listItem.id = "info";
+    listItem.appendChild(image);
+    header.textContent = name;
+    listItem.appendChild(header);
+
+    cost.textContent = "Cost: $" + Range(rental.price);
+    rooms.textContent = "Rooms: " + Range(rental.style.bed);
+    listItem.appendChild(cost);
+    listItem.appendChild(rooms);
+
+    
+    
+    
+    //  Mousover and out of sidebar element to display info window.  
+
+    document.getElementById("nav").appendChild(listItem);
+    // image.addEventListener('hover', (function(rental.img){
+    //     return function(){
+    //       for(var i = 0; i < rental.img.length; i++){
+    //         image.
+    //       }
+    //     }
+    // })
+    listItem.addEventListener('mouseover', (function(marker,content,infowindow){ 
+        return function() {
+           infowindow.setContent(content);
+           infowindow.open(map,marker);
+        };
+    })(marker, content, infowindow));
+    listItem.addEventListener('mouseout', (function(marker,content,infowindow){ 
+        return function() {
+           infowindow.close();
+        };
+    })(marker, content, infowindow));
 
       //  Mousover and out to display and remove info window
 
@@ -77,21 +122,20 @@ function eqfeed_callback(results) {
       };
     })(marker, content, infowindow));  
   }
+
+  //  Resize bounds based on min and max X and Y values.
 map.fitBounds(bounds);
-console.log(bounds);
-if(bounds.Za[0] == bounds.Za[1])
- map.setZoom(map.getZoom());
+
 }
+
 function displayAve() {
-    // Creating the XMLHttpRequest object
+    // Creating the XMLHttpRequest object, data sourced from Zillow.com
     const output = document.getElementById('average');
     const request = new XMLHttpRequest();
-    const url = "https://api.myjson.com/bins/jvfrw";
-    var city = "Portland";
+    const url = "https://raw.githubusercontent.com/ANDER50N-STEVEN/ANDER50N-STEVEN.github.io/master/project/csvjson.json";
+    var city = "Portland";    
     var state = "OR"
 
-  
-    // Defining event listener for readystatechange event
     request.onreadystatechange = function() {
         // Check if the request is compete and was successful
         if(this.readyState === 4 && this.status === 200) {
@@ -100,15 +144,12 @@ function displayAve() {
             var current = average.filter(obj => {
               return (obj.RegionName === city && obj.State === state)
             })
-            var response =  "The Average Cost for Apartments to live in " + city + " area is: $" + current[0].Zri+ "/month";
-            console.log(current[0].RegionName);
+            var response =  "The Average Cost for Apartments in the " + city + " area is: $" + current[0].Zri+ "/month";
             output.innerHTML = response;
         }
-        console.log(response);
     };
   // Instantiating the request object
     request.open("GET", url, true);
-
     // Sending the request to the server
     request.send();
 }
@@ -139,7 +180,9 @@ localStorage.setItem(filter, c);
       if(set != null)
         storedFilter();
       break;
+      // Future feature.
     case "feet":
+        if(set != null)
       filterFeet(c);
       break;
     default:
@@ -165,7 +208,7 @@ window.onclick = function(event) {
     active('bath');
 
       localStorage.clear();
-      // I don't know if there is an easier way to reset defaults of inline CSS
+      // I don't know if there is an easier way to reset defaults of CSS
       document.getElementById('left').value = 0;
       document.getElementById('right').value = 5000;
       document.getElementById('thumbl').style.left = "0%";
@@ -230,7 +273,6 @@ function filterBed(beds){
       }
     }
   }
-//console.log(JSON.parse(localStorage.getItem('data')));
 }
 
 function filterBath(baths){
@@ -265,9 +307,6 @@ function filterPrice(price, isMax){
       }
     }
   }
-
-console.log(set);
-  
 }
 
 function filterFeet(min, max){
@@ -277,7 +316,6 @@ function filterFeet(min, max){
       i--;
     }
   }
-  
 }
 
 function print(array, space){
@@ -299,6 +337,7 @@ function inArray(needle,haystack)
     }
     return false;
 }
+
 function isEmpty(obj) {
     for(var key in obj) {
         if(obj.hasOwnProperty(key))
@@ -307,3 +346,17 @@ function isEmpty(obj) {
     return true;
 }
 
+function Range(range){
+  var min = range[0];
+  var max = range[0];
+  for(var key in range){
+    if(range[key] < min)
+      min = range[key];
+    if(range[key] > max)
+      max = range[key];
+  }
+  if(min === max)
+    return min;
+  else
+    return min + "-" + max;
+}
