@@ -1,11 +1,18 @@
-  html, body {
-        height: 95%;
+html, body {
+        height: 92%;
         margin-left: 50px;
         padding: 0;
-    }
+        padding-right: 250px;
+        background: linear-gradient(to bottom right, #3D4258, #6670A0, #9688B4);
+      	line-height: 1.5;
+      	font-family: 'Nunito', sans-serif;
+      	/*min-width: 800px;*/
+}
+
 ul {
     list-style-type: none;
 }
+
 li{
 	margin-left: -10px;
 	background-color: grey;
@@ -24,6 +31,7 @@ li:hover{
 }
 #bathBtn{
 	float: left;
+	/*padding-right: 400px;*/
 }
 #average{
 
@@ -37,7 +45,8 @@ li:hover{
     margin-top: -50px;
     padding-top: 50px;
 	border-left: 10px solid #ddd;
-	width: 500px;
+	width: 450px;
+	/*margin-left:800px;*/
 }
 
 .sidebar-header {
@@ -47,7 +56,7 @@ li:hover{
 }
 
 .sidebar {
-    height: 85%;
+    height: 75%;
 	position: relative;
 	overflow-y: scroll;
 }
@@ -72,7 +81,7 @@ h4{
 #map {
 	margin-top: 20px;
         height: 80%;
-        width: 60%;
+        min-width: 200px;
       }
 
 .gm-style-iw, .gm-style-iw-c{

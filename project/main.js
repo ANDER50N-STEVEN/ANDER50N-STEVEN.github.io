@@ -89,13 +89,7 @@ function eqfeed_callback(results) {
     //  Mousover and out of sidebar element to display info window.  
 
     document.getElementById("nav").appendChild(listItem);
-    // image.addEventListener('hover', (function(rental.img){
-    //     return function(){
-    //       for(var i = 0; i < rental.img.length; i++){
-    //         image.
-    //       }
-    //     }
-    // })
+
     listItem.addEventListener('mouseover', (function(marker,content,infowindow){ 
         return function() {
            infowindow.setContent(content);
